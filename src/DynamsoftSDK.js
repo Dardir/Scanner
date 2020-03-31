@@ -3,6 +3,7 @@ import './DynamsoftSDK.css';
 import Dynamsoft from 'dwt';
 import $ from 'jquery';
 import {productKey} from './ProductKey' 
+import Metadata from './Metadata'
 
 class UI extends React.Component {
     render() {
@@ -190,6 +191,7 @@ class UI extends React.Component {
                         </ul>
                     </div>
                 </div>
+                <Metadata submitToBackendService = {this.props.submitToBackendService}/>
                 <div id="DWTcontainerBtm" style={{ textAlign: "left" }} className="clearfix">
                     <div id="DWTemessageContainer"></div>
                     <div id="divNoteMessage"> </div>
@@ -640,6 +642,10 @@ export default class DWT extends React.Component {
         }
     }
 
+    submitToBackendService(metadataObj){
+
+    }
+
     render() {
         return (
             <UI
@@ -669,6 +675,7 @@ export default class DWT extends React.Component {
                 rdTIFF_onclick={() => this.rdTIFF_onclick()}
                 rdPDF_onclick={() => this.rdPDF_onclick()}
                 rd_onclick={() => this.rd_onclick()}
+                submitToBackendService={(metadataObj) => this.submitToBackendService(metadataObj)}
             />
         );
     }
