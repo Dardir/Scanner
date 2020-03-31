@@ -2,6 +2,7 @@ import React from 'react';
 import './DynamsoftSDK.css';
 import Dynamsoft from 'dwt';
 import $ from 'jquery';
+import {productKey} from './ProductKey' 
 
 class UI extends React.Component {
     render() {
@@ -207,7 +208,7 @@ export default class DWT extends React.Component {
 
     DWObject = null;
     containerId = 'dwtcontrolContainer';
-    productKey = 't0141cQMAABsK/NkqsTfaKgyf78XRetYpoAIQglfEamAuEaUzgpoV6DNjG/di6O9wg1+phIWoiAI6J6uLP0b6+76lunYU2coCwyuzHUJns2AqczQxjN56HMb/mE1//qXBnG54o9ywYDw3kuYhor+vyDN/DAvGcyNpnkLmsxkaLRgWjOdGcG3crDdafwFGaK8i';
+    //productKey = 't0141cQMAABsK/NkqsTfaKgyf78XRetYpoAIQglfEamAuEaUzgpoV6DNjG/di6O9wg1+phIWoiAI6J6uLP0b6+76lunYU2coCwyuzHUJns2AqczQxjN56HMb/mE1//qXBnG54o9ywYDw3kuYhor+vyDN/DAvGcyNpnkLmsxkaLRgWjOdGcG3crDdafwFGaK8i';
     _strTempStr = '';
     re = /^\d+$/;
     strre = /^[\s\w]+$/;
@@ -364,7 +365,7 @@ export default class DWT extends React.Component {
     }
 
     loadDWT() {
-        Dynamsoft.WebTwainEnv.ProductKey = this.productKey;
+        Dynamsoft.WebTwainEnv.ProductKey = productKey;
         Dynamsoft.WebTwainEnv.Containers = [{ ContainerId: this.containerId, Width: '583px', Height: '513px' }];
         Dynamsoft.WebTwainEnv.Load();
     }
