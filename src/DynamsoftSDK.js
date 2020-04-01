@@ -191,7 +191,10 @@ class UI extends React.Component {
                         </ul>
                     </div>
                 </div>
-                <Metadata submitToBackendService = {this.props.submitToBackendService}/>
+                <Metadata 
+                    saveMetadataObj = {this.props.saveMetadataObj}
+                    metadataEnabled = {this.props.metadataEnabled}
+                />
                 <div id="DWTcontainerBtm" style={{ textAlign: "left" }} className="clearfix">
                     <div id="DWTemessageContainer"></div>
                     <div id="divNoteMessage"> </div>
@@ -478,6 +481,17 @@ export default class DWT extends React.Component {
             return true;
     }
 
+    isMetadataEnabled(){
+        if(!this.DWObject){
+            return false;
+        }
+        if (this.DWObject.HowManyImagesInBuffer === 0) {
+            return false;
+        }
+        else
+            return true;
+    }
+
     btnShowImageEditor_onclick() {
         if (!this.checkIfImagesInBuffer()) {
             return;
@@ -642,7 +656,7 @@ export default class DWT extends React.Component {
         }
     }
 
-    submitToBackendService(metadataObj){
+    saveMetadataObj = (metadataObj) => {
 
     }
 
@@ -675,7 +689,8 @@ export default class DWT extends React.Component {
                 rdTIFF_onclick={() => this.rdTIFF_onclick()}
                 rdPDF_onclick={() => this.rdPDF_onclick()}
                 rd_onclick={() => this.rd_onclick()}
-                submitToBackendService={(metadataObj) => this.submitToBackendService(metadataObj)}
+                saveMetadataObj={this.saveMetadataObj}
+                metadataEnabled={this.isMetadataEnabled()}
             />
         );
     }

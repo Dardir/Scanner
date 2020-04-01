@@ -370,6 +370,7 @@ ul {
     float: right;
     width: 315px;
     height: 570px;
+    padding-right: 20px;
 }
 
 div.divinput {
