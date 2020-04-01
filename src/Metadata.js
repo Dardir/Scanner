@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './DynamsoftSDK.css';
+import { counsulates } from './ReferenceData';
+
 const Metadata = (Props) => {
   const [metadataform, setState] = useState({
     counsulate: '',
@@ -41,8 +43,13 @@ const Metadata = (Props) => {
                   </label>
                   <select size="1" id="counsulate" style={{ position: "relative" }} name="counsulate" onChange={updateField}>
                     <option value="0">اختر القنصلية</option>
-                    <option value="Cairo">القاهرة</option>
-                    <option value="Alex">الإسكندرية</option>
+                    {
+                      counsulates.map((item) => {
+                        return (
+                          <option value={item.key}>{item.value}</option>
+                        );
+                      })
+                    }
                   </select>
                 </li>
               </ul>
