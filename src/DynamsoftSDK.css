@@ -27,6 +27,7 @@ img {
 p {
     margin: 0;
     padding: 0;
+    float: right;
 }
 
 a:link, a:visited {
@@ -440,6 +441,9 @@ div.divinput {
 #divScanner {
     border-bottom: none;
 }
+#divEmbassy {
+    border-bottom: none;
+}
 
 #PCollapse {
     list-style: none inside none;
@@ -457,6 +461,20 @@ select#source {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     outline: none;
+}
+
+select#counsulate {
+    margin-top: 3px;
+    padding-left: 3px;
+    width: 100%;
+    height: 26px;
+    font-size: 12px;
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    outline: none;
+    text-align-last:center;
 }
 
 select#Resolution {
@@ -514,6 +532,9 @@ select#Resolution {
 }
 
 #div_ScanImage {
+    position: relative;
+}
+#div_EmbassyDetails {
     position: relative;
 }
 

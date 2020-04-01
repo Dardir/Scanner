@@ -26,16 +26,30 @@ const Metadata = (Props) => {
   };
   return (
     <div id="Metadata">
-      <ul className="PCollapse">
-        <li>
-          <div className="divType">
-            <div className="mark_arrow expanded"></div>
+      <div id="divEmbassy" className="divinput">
+        <ul className="PCollapse">
+          <li>
+            <div className="divType">
+              <div className="mark_arrow expanded"></div>
                                     تفاصيل السفارة
             </div>
-          <div id="div_ScanImage" className="divTableStyle">
-          </div>
-        </li>
-      </ul>
+            <div id="div_EmbassyDetails" className="divTableStyle">
+              <ul id="ulEmbassyDetails">
+                <li>
+                  <label htmlFor="counsulate">
+                    <p>القنصلية</p>
+                  </label>
+                  <select size="1" id="counsulate" style={{ position: "relative" }} name="counsulate" onChange={updateField}>
+                    <option value="0">اختر القنصلية</option>
+                    <option value="Cairo">القاهرة</option>
+                    <option value="Alex">الإسكندرية</option>
+                  </select>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   )
 }
