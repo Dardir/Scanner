@@ -52,6 +52,12 @@ const Metadata = (Props) => {
                     }
                   </select>
                 </li>
+                <li style={{paddingTop:"10px"}}>
+                  <label htmlFor="txt_barcode">
+                    <p>باركود</p>
+                  </label>
+                  <input type="text" size="20" id="txt_barcode" name="barcode" onChange={updateField} />
+                </li>
               </ul>
             </div>
           </li>

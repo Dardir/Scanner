@@ -994,3 +994,12 @@ select#Resolution {
     color: #ccc;
     overflow: hidden;
 }
+
+
+#div_EmbassyDetails input[type='text'] {
+    margin-top: 3px;
+    margin-bottom: 6px;
+    height: 26px;
+    border: solid 1px #ccc;
+    width: 100%
+}
