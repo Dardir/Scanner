@@ -113,6 +113,15 @@ const Metadata = (Props) => {
               </ul>
             </div>
           </li>
+          <li>
+            <div className="metaDivType">
+              <b> تفاصيل التوكيل </b>
+            </div>
+            <div id="div_DelegationDetails" className="divTableStyle">
+              <ul id="ulDelegationDetails">
+              </ul>
+            </div>
+          </li>
         </ul>
       </div>
     </div>

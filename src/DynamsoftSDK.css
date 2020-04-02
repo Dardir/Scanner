@@ -550,6 +550,10 @@ select#Resolution {
     position: relative;
 }
 
+#div_DelegationDetails{
+    position: relative;
+}
+
 #tblLoadImage {
     position: absolute;
     top: 102px;
@@ -1009,6 +1013,14 @@ select#Resolution {
 
 
 #div_EmbassyDetails input[type='text'] {
+    margin-top: 3px;
+    margin-bottom: 6px;
+    height: 26px;
+    border: solid 1px #ccc;
+    width: 100%
+}
+
+#div_DelegationDetails input[type='text'] {
     margin-top: 3px;
     margin-bottom: 6px;
     height: 26px;
