@@ -29,11 +29,11 @@ const Metadata = (Props) => {
   return (
     <div id="Metadata">
       <div id="divEmbassy" className="divinput">
-        <ul className="PCollapse">
+        <ul >
           <li>
-            <div className="divType">
-              <div className="mark_arrow expanded"></div>
-                                    تفاصيل السفارة
+            <div className="metaDivType">
+              <div ></div>
+                                   <b> تفاصيل السفارة </b>
             </div>
             <div id="div_EmbassyDetails" className="divTableStyle">
               <ul id="ulEmbassyDetails">

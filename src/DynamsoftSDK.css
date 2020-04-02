@@ -395,6 +395,18 @@ div.divinput {
     background: #eee;
     cursor: pointer;
 }
+.metaDivType {
+    padding-left: 20px;
+    height: 38px;
+    line-height: 36px;
+    font-family: OpenSans-Semibold, Arial, sans-serif, Verdana, Helvetica;
+    font-size: 18px;
+    color: #444;
+    border-bottom: solid 1px #ccc;
+    background: #eee;
+    cursor: pointer;
+    text-align-last:center;
+}
 
 #ScanWrapper .toggle {
     cursor: default;
