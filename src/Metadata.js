@@ -32,8 +32,7 @@ const Metadata = (Props) => {
         <ul >
           <li>
             <div className="metaDivType">
-              <div ></div>
-                                   <b> تفاصيل السفارة </b>
+              <b> تفاصيل السفارة </b>
             </div>
             <div id="div_EmbassyDetails" className="divTableStyle">
               <ul id="ulEmbassyDetails">
@@ -52,7 +51,7 @@ const Metadata = (Props) => {
                     }
                   </select>
                 </li>
-                <li style={{paddingTop:"10px"}}>
+                <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_barcode">
                     <p>باركود</p>
                   </label>
