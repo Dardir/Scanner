@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import './DynamsoftSDK.css';
 import { counsulates } from './ReferenceData';
 
@@ -7,8 +9,8 @@ const Metadata = (Props) => {
     counsulate: '',
     barcode: '',
     delegationNumber: '',
-    delegationDate: '',
-    transactionDate: '',
+    delegationDate: new Date(),
+    transactionDate: new Date(),
     employeeName: '',
     employeeNumber: '',
     delegationType: '',
@@ -24,6 +26,19 @@ const Metadata = (Props) => {
     setState({
       ...metadataform,
       [e.target.name]: e.target.value
+    });
+  };
+
+  const handleDelegationDateChange = date => {
+    setState({
+      ...metadataform,
+      delegationDate: date
+    });
+  };
+  const handleTransactionDateChange = date => {
+    setState({
+      ...metadataform,
+      transactionDate: date
     });
   };
   return (
@@ -62,6 +77,38 @@ const Metadata = (Props) => {
                     <p>رقم التوكيل</p>
                   </label>
                   <input type="text" size="20" id="txt_delegationNumber" name="delegationNumber" onChange={updateField} />
+                </li>
+                <li style={{ paddingTop: "10px" }}>
+                  <label htmlFor="date_delegationDate">
+                    <p>تاريخ التوكيل</p>
+                  </label>
+                  <DatePicker
+                    selected={metadataform.delegationDate}
+                    onChange={handleDelegationDateChange}
+                    id="date_delegationDate"
+                  />
+                </li>
+                <li style={{ paddingTop: "10px" }}>
+                  <label htmlFor="date_transactionDate">
+                    <p>تاريخ المعاملة</p>
+                  </label>
+                  <DatePicker
+                    selected={metadataform.transactionDate}
+                    onChange={handleTransactionDateChange}
+                    id="date_transactionDate"
+                  />
+                </li>
+                <li style={{ paddingTop: "10px" }}>
+                  <label htmlFor="txt_employeeName">
+                    <p>اسم الموظف</p>
+                  </label>
+                  <input type="text" size="20" id="txt_employeeName" name="employeeName" onChange={updateField} />
+                </li>
+                <li style={{ paddingTop: "10px" }}>
+                  <label htmlFor="txt_employeeNumber">
+                    <p>رقم الموظف</p>
+                  </label>
+                  <input type="text" size="20" id="txt_employeeNumber" name="employeeNumber" onChange={updateField} />
                 </li>
               </ul>
             </div>
