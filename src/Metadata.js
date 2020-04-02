@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './DynamsoftSDK.css';
-import { counsulates } from './ReferenceData';
+import { counsulates, delegationTypes } from './ReferenceData';
 
 const Metadata = (Props) => {
   const [metadataform, setState] = useState({
@@ -119,6 +119,32 @@ const Metadata = (Props) => {
             </div>
             <div id="div_DelegationDetails" className="divTableStyle">
               <ul id="ulDelegationDetails">
+                <li>
+                  <label htmlFor="delegationType">
+                    <p>نوع التوكيل</p>
+                  </label>
+                  <select size="1" id="delegationType" style={{ position: "relative" }} name="delegationType" onChange={updateField}>
+                    {
+                      delegationTypes.map((item) => {
+                        return (
+                          <option value={item.key}>{item.value}</option>
+                        );
+                      })
+                    }
+                  </select>
+                </li>
+                <li style={{ paddingTop: "10px" }}>
+                  <label htmlFor="txt_delegator">
+                    <p>الموكل</p>
+                  </label>
+                  <input type="text" size="20" id="txt_delegator" name="delegator" onChange={updateField} />
+                </li>
+                <li style={{ paddingTop: "10px" }}>
+                  <label htmlFor="txt_delegatorPassport">
+                    <p>رقم جواز سفر الموكل</p>
+                  </label>
+                  <input type="text" size="20" id="txt_delegatorPassport" name="delegatorPassport" onChange={updateField} />
+                </li>
               </ul>
             </div>
           </li>
