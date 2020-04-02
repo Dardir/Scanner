@@ -41,7 +41,7 @@ const Metadata = (props) => {
       transactionDate: date
     });
   };
-  const saveButtonClicked = () =>{
+  const saveButtonClicked = () => {
     props.saveMetadataObj(metadataform);
   }
   return (
@@ -176,7 +176,9 @@ const Metadata = (props) => {
             </div>
           </li>
           <li className="tc">
-            <button id="btnSaveForm" onClick={saveButtonClicked} style={{ color: "rgb(255, 255, 255)", backgroundColor: "rgb(80, 168, 225)", cursor: "pointer" }}>حفظ</button>
+            <div className="divTableStyle">
+              <button id="btnSaveForm" onClick={saveButtonClicked} style={{ color: "rgb(255, 255, 255)", backgroundColor: "rgb(80, 168, 225)", cursor: "pointer" }}>حفظ</button>
+            </div>
           </li>
         </ul>
       </div>
