@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import './DynamsoftSDK.css';
 import { counsulates, delegationTypes } from './ReferenceData';
 
-const Metadata = (Props) => {
+const Metadata = (props) => {
   const [metadataform, setState] = useState({
     counsulate: '',
     barcode: '',
@@ -41,6 +41,9 @@ const Metadata = (Props) => {
       transactionDate: date
     });
   };
+  const saveButtonClicked = () =>{
+    props.saveMetadataObj(metadataform);
+  }
   return (
     <div id="Metadata">
       <div id="divEmbassy" className="divinput">
@@ -145,8 +148,35 @@ const Metadata = (Props) => {
                   </label>
                   <input type="text" size="20" id="txt_delegatorPassport" name="delegatorPassport" onChange={updateField} />
                 </li>
+                <li style={{ paddingTop: "10px" }}>
+                  <label htmlFor="txt_delegatedTo">
+                    <p> الموكل اليه</p>
+                  </label>
+                  <input type="text" size="20" id="txt_delegatedTo" name="delegatedTo" onChange={updateField} />
+                </li>
+                <li style={{ paddingTop: "10px" }}>
+                  <label htmlFor="txt_delegatedToPassport">
+                    <p> رقم جواز سفر الموكل اليه</p>
+                  </label>
+                  <input type="text" size="20" id="txt_delegatedToPassport" name="delegatedToPassport" onChange={updateField} />
+                </li>
+                <li style={{ paddingTop: "10px" }}>
+                  <label htmlFor="txt_delegationSubject">
+                    <p>موضوع التوكيل</p>
+                  </label>
+                  <textarea rows="5" cols="47" id="txt_delegationSubject" name="delegationSubject" onChange={updateField} />
+                </li>
+                <li style={{ paddingTop: "10px" }}>
+                  <label htmlFor="txt_keySearch">
+                    <p>كلمات بحثية</p>
+                  </label>
+                  <textarea rows="5" cols="47" id="txt_keySearch" name="keySearch" onChange={updateField} />
+                </li>
               </ul>
             </div>
+          </li>
+          <li className="tc">
+            <button id="btnSaveForm" onClick={saveButtonClicked} style={{ color: "rgb(255, 255, 255)", backgroundColor: "rgb(80, 168, 225)", cursor: "pointer" }}>حفظ</button>
           </li>
         </ul>
       </div>
