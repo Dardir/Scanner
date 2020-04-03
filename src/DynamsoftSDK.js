@@ -1043,6 +1043,7 @@ export default class DWT extends React.Component {
         if (this.DWObject.HowManyImagesInBuffer === 0) {
             document.getElementById("DW_TotalImage").value = this.DWObject.HowManyImagesInBuffer;
             document.getElementById("DW_CurrentImage").value = "";
+            this.setMetadataEnabled();
             return;
         }
         else {
@@ -1058,6 +1059,7 @@ export default class DWT extends React.Component {
         this.DWObject.RemoveAllImages();
         document.getElementById("DW_TotalImage").value = "0";
         document.getElementById("DW_CurrentImage").value = "";
+        this.setMetadataEnabled();
     }
 
     setlPreviewMode() {
