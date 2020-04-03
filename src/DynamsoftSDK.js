@@ -485,6 +485,7 @@ export default class DWT extends React.Component {
     }
 
     setMetadataEnabled(){
+        debugger;
         if(!this.DWObject){
             this.setState({...this.state,metadataEnabled:false});
         }

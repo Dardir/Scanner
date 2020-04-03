@@ -42,7 +42,6 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
     });
   };
   const saveButtonClicked = () => {
-    console.log("clicked!")
     saveMetadataObj(metadataform);
   }
   return (
