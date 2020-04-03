@@ -389,11 +389,12 @@ div.divinput {
     height: 38px;
     line-height: 36px;
     font-family: OpenSans-Semibold, Arial, sans-serif, Verdana, Helvetica;
-    font-size: 14px;
+    font-size: 18px;
     color: #444;
     border-bottom: solid 1px #ccc;
     background: #eee;
     cursor: pointer;
+    text-align-last:center;
 }
 .metaDivType {
     padding-left: 20px;
@@ -697,8 +698,9 @@ select#Resolution {
 
 #DWTdivMsg {
     padding: 5px 0 0;
-    font-size: 14px;
+    font-size: 18px;
     color: #444;
+    text-align: right;
 }
 
 #DWTemessage {

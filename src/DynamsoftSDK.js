@@ -49,7 +49,7 @@ class UI extends React.Component {
                     </div>
                     <div id={this.props.containerId}></div>
                     <div id="btnGroupBtm" className="clearfix">
-                        <div className="ct-lt">Page:
+                        <div className="ct-lt">صفحة
                         <button id="DW_btnFirstImage" onClick={this.props.btnFirstImage_onclick}> |&lt; </button>
                             &nbsp;
                         <button id="DW_btnPreImage" onClick={this.props.btnPreImage_onclick}> &lt; </button>
@@ -62,7 +62,7 @@ class UI extends React.Component {
                             &nbsp;
                         <button id="DW_btnLastImage" onClick={this.props.btnLastImage_onclick}> &gt;| </button>
                         </div>
-                        <div className="ct-rt">Preview Mode:
+                        <div className="ct-rt">وضعية المعاينة
                         <select size="1" id="DW_PreviewMode" onChange={this.props.setlPreviewMode}>
                                 <option value="0">1X1</option>
                                 <option value="1">2X2</option>
@@ -79,12 +79,12 @@ class UI extends React.Component {
                             <li>
                                 <div className="divType">
                                     <div className="mark_arrow expanded"></div>
-                                    Custom Scan</div>
+                                  <b>المسح الضوئي</b></div>
                                 <div id="div_ScanImage" className="divTableStyle">
                                     <ul id="ulScaneImageHIDE">
                                         <li>
                                             <label htmlFor="source">
-                                                <p>Select Source:</p>
+                                                <p>اختر المصدر</p>
                                             </label>
                                             <select size="1" id="source" style={{ position: "relative" }} onChange={this.props.source_onchange}>
                                                 <option value="0">Looking for devices..</option></select>
@@ -124,7 +124,7 @@ class UI extends React.Component {
                                             </ul>
                                         </li>
                                         <li className="tc">
-                                            <button id="btnScan" onClick={this.props.acquireImage} style={{ color: "rgb(255, 255, 255)", backgroundColor: "rgb(80, 168, 225)", cursor: "pointer" }}>Scan</button>
+                                            <button id="btnScan" onClick={this.props.acquireImage} style={{ color: "rgb(255, 255, 255)", backgroundColor: "rgb(80, 168, 225)", cursor: "pointer" }}>المسح الضوئي</button>
                                         </li>
                                     </ul>
                                     <div id="tblLoadImage" style={{ visibility: "hidden" }}>
@@ -141,11 +141,11 @@ class UI extends React.Component {
                             <li id="liLoadImage">
                                 <div className="divType">
                                     <div className="mark_arrow collapsed"></div>
-                                    Load Images or PDFs</div>
+                                   <b> تحميل الصور أو الملفات</b></div>
                                 <div id="div_LoadLocalImage" style={{ display: "none" }} className="divTableStyle">
                                     <ul>
                                         <li className="tc">
-                                            <button className="btnOrg" onClick={this.props.btnLoadImagesOrPDFs_onclick} >Load</button>
+                                            <button className="btnOrg" onClick={this.props.btnLoadImagesOrPDFs_onclick} >تحميل</button>
                                         </li>
                                     </ul>
                                 </div>
@@ -154,9 +154,9 @@ class UI extends React.Component {
                     </div>
                     <div id="divUpload" className="divinput mt30" style={{ position: "relative" }}>
                         <ul>
-                            <li className="toggle">Save Documents</li>
+                            <li className="toggle"><b>حفظ الوثائق</b></li>
                             <li>
-                                <p>File Name:</p>
+                                <p>اسم الملف</p>
                                 <input type="text" size="20" id="txt_fileName" />
                             </li>
                             <li style={{ paddingRight: "0" }}>
@@ -185,8 +185,8 @@ class UI extends React.Component {
                                     Multi-Page PDF</label>
                             </li>
                             <li>
-                                <button id="btnSave" className="btnOrg" onClick={() => { this.props.saveUploadImage('local') }} >Save to Local</button>
-                                <button id="btnUpload" className="btnOrg" onClick={() => { this.props.saveUploadImage('server') }} >Upload to Server</button>
+                                <button id="btnSave" className="btnOrg" onClick={() => { this.props.saveUploadImage('local') }} >حفظ علي الحاسوب</button>
+                                <button id="btnUpload" className="btnOrg" onClick={() => { this.props.saveUploadImage('server') }} >تحميل الي النظام</button>
                             </li>
                         </ul>
                     </div>
@@ -735,7 +735,7 @@ export default class DWT extends React.Component {
                 objString += "<p className='backToDemoList'><a className='d-btn bgOrange' href =\"online_demo_list.aspx\">Back</a></p>";
             }
             objString += "<div id='DWTdivMsg' className='clearfix'>";
-            objString += "Message:<br/>"
+            objString += "الرسائل<br/>"
             objString += "<div id='DWTemessage'>";
             objString += "</div></div>";
 
