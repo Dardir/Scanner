@@ -709,6 +709,7 @@ select#Resolution {
     border: solid 1px #ccc;
     overflow-y: scroll;
     background: #fff;
+    text-align: right;
 }
 
 #divNoteMessage {

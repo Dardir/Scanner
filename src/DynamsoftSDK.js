@@ -208,7 +208,8 @@ export default class DWT extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            metadataEnabled : false
+            metadataEnabled : false,
+            metadataObj: {}
         }
     }
 
@@ -659,8 +660,9 @@ export default class DWT extends React.Component {
         }
     }
 
-    saveMetadataObj = (metadataObj) => {
-
+    saveMetadataObj = (var_metadataObj) => {
+        this.appendMessage("تم حفظ البيانات");
+        this.setState({...this.state,metadataObj:var_metadataObj});
     }
 
     render() {

@@ -132,6 +132,7 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                     <p>نوع التوكيل</p>
                   </label>
                   <select size="1" id="delegationType"  name="delegationType" onChange={updateField} disabled = {!metadataEnabled}>
+                  <option value="0">اختر نوع التوكيل</option>
                     {
                       delegationTypes.map((item) => {
                         return (
