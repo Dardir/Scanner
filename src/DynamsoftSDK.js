@@ -208,6 +208,7 @@ export default class DWT extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            metadataEnabled : false
         }
     }
 
@@ -389,6 +390,7 @@ export default class DWT extends React.Component {
             document.getElementById("DW_TotalImage").value = this.DWObject.HowManyImagesInBuffer;
         if (document.getElementById("DW_CurrentImage"))
             document.getElementById("DW_CurrentImage").value = this.DWObject.CurrentImageIndexInBuffer + 1;
+        this.setMetadataEnabled();
     }
 
     checkErrorString() {
@@ -481,15 +483,16 @@ export default class DWT extends React.Component {
             return true;
     }
 
-    isMetadataEnabled(){
+    setMetadataEnabled(){
         if(!this.DWObject){
-            return false;
+            this.setState({...this.state,metadataEnabled:false});
         }
         if (this.DWObject.HowManyImagesInBuffer === 0) {
-            return false;
+            this.setState({...this.state,metadataEnabled:false});
         }
-        else
-            return true;
+        else{
+            this.setState({...this.state,metadataEnabled:true});
+        }
     }
 
     btnShowImageEditor_onclick() {
@@ -690,7 +693,7 @@ export default class DWT extends React.Component {
                 rdPDF_onclick={() => this.rdPDF_onclick()}
                 rd_onclick={() => this.rd_onclick()}
                 saveMetadataObj={this.saveMetadataObj}
-                metadataEnabled={this.isMetadataEnabled()}
+                metadataEnabled={this.state.metadataEnabled}
             />
         );
     }

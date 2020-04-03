@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import './DynamsoftSDK.css';
 import { counsulates, delegationTypes } from './ReferenceData';
 
-const Metadata = (props) => {
+const Metadata = ({saveMetadataObj,metadataEnabled}) => {
   const [metadataform, setState] = useState({
     counsulate: '',
     barcode: '',
@@ -42,7 +42,8 @@ const Metadata = (props) => {
     });
   };
   const saveButtonClicked = () => {
-    props.saveMetadataObj(metadataform);
+    console.log("clicked!")
+    saveMetadataObj(metadataform);
   }
   return (
     <div id="Metadata">
@@ -52,13 +53,13 @@ const Metadata = (props) => {
             <div className="metaDivType">
               <b> تفاصيل السفارة </b>
             </div>
-            <div id="div_EmbassyDetails" className="divTableStyle">
+            <div id="div_EmbassyDetails" className="divTableStyle" >
               <ul id="ulEmbassyDetails">
                 <li>
                   <label htmlFor="counsulate">
                     <p>القنصلية</p>
                   </label>
-                  <select size="1" id="counsulate" style={{ position: "relative" }} name="counsulate" onChange={updateField}>
+                  <select size="1" id="counsulate"  name="counsulate" onChange={updateField} disabled = {!metadataEnabled}>
                     <option value="0">اختر القنصلية</option>
                     {
                       counsulates.map((item) => {
@@ -73,13 +74,13 @@ const Metadata = (props) => {
                   <label htmlFor="txt_barcode">
                     <p>باركود</p>
                   </label>
-                  <input type="text" size="20" id="txt_barcode" name="barcode" onChange={updateField} />
+                  <input type="text" size="20" id="txt_barcode" name="barcode" onChange={updateField} disabled = {!metadataEnabled} />
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegationNumber">
                     <p>رقم التوكيل</p>
                   </label>
-                  <input type="text" size="20" id="txt_delegationNumber" name="delegationNumber" onChange={updateField} />
+                  <input type="text" size="20" id="txt_delegationNumber" name="delegationNumber" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="date_delegationDate">
@@ -89,6 +90,8 @@ const Metadata = (props) => {
                     selected={metadataform.delegationDate}
                     onChange={handleDelegationDateChange}
                     id="date_delegationDate"
+                    onSelect={handleDelegationDateChange}
+                    disabled = {!metadataEnabled}
                   />
                 </li>
                 <li style={{ paddingTop: "10px" }}>
@@ -98,20 +101,22 @@ const Metadata = (props) => {
                   <DatePicker
                     selected={metadataform.transactionDate}
                     onChange={handleTransactionDateChange}
+                    onSelect={handleTransactionDateChange}
                     id="date_transactionDate"
+                    disabled = {!metadataEnabled}
                   />
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_employeeName">
                     <p>اسم الموظف</p>
                   </label>
-                  <input type="text" size="20" id="txt_employeeName" name="employeeName" onChange={updateField} />
+                  <input type="text" size="20" id="txt_employeeName" name="employeeName" onChange={updateField} disabled = {!metadataEnabled} />
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_employeeNumber">
                     <p>رقم الموظف</p>
                   </label>
-                  <input type="text" size="20" id="txt_employeeNumber" name="employeeNumber" onChange={updateField} />
+                  <input type="text" size="20" id="txt_employeeNumber" name="employeeNumber" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
               </ul>
             </div>
@@ -126,7 +131,7 @@ const Metadata = (props) => {
                   <label htmlFor="delegationType">
                     <p>نوع التوكيل</p>
                   </label>
-                  <select size="1" id="delegationType" style={{ position: "relative" }} name="delegationType" onChange={updateField}>
+                  <select size="1" id="delegationType"  name="delegationType" onChange={updateField} disabled = {!metadataEnabled}>
                     {
                       delegationTypes.map((item) => {
                         return (
@@ -140,44 +145,44 @@ const Metadata = (props) => {
                   <label htmlFor="txt_delegator">
                     <p>الموكل</p>
                   </label>
-                  <input type="text" size="20" id="txt_delegator" name="delegator" onChange={updateField} />
+                  <input type="text" size="20" id="txt_delegator" name="delegator" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegatorPassport">
                     <p>رقم جواز سفر الموكل</p>
                   </label>
-                  <input type="text" size="20" id="txt_delegatorPassport" name="delegatorPassport" onChange={updateField} />
+                  <input type="text" size="20" id="txt_delegatorPassport" name="delegatorPassport" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegatedTo">
                     <p> الموكل اليه</p>
                   </label>
-                  <input type="text" size="20" id="txt_delegatedTo" name="delegatedTo" onChange={updateField} />
+                  <input type="text" size="20" id="txt_delegatedTo" name="delegatedTo" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegatedToPassport">
                     <p> رقم جواز سفر الموكل اليه</p>
                   </label>
-                  <input type="text" size="20" id="txt_delegatedToPassport" name="delegatedToPassport" onChange={updateField} />
+                  <input type="text" size="20" id="txt_delegatedToPassport" name="delegatedToPassport" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegationSubject">
                     <p>موضوع التوكيل</p>
                   </label>
-                  <textarea rows="5" cols="47" id="txt_delegationSubject" name="delegationSubject" onChange={updateField} />
+                  <textarea rows="5" cols="47" id="txt_delegationSubject" name="delegationSubject" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_keySearch">
                     <p>كلمات بحثية</p>
                   </label>
-                  <textarea rows="5" cols="47" id="txt_keySearch" name="keySearch" onChange={updateField} />
+                  <textarea rows="5" cols="47" id="txt_keySearch" name="keySearch" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
               </ul>
             </div>
           </li>
           <li className="tc">
             <div className="divTableStyle">
-              <button id="btnSaveForm" onClick={saveButtonClicked} style={{ color: "rgb(255, 255, 255)", backgroundColor: "rgb(80, 168, 225)", cursor: "pointer" }}>حفظ</button>
+              <button id="btnSaveForm" onClick={saveButtonClicked} disabled = {!metadataEnabled} style={{ color: "rgb(255, 255, 255)", backgroundColor: "rgb(80, 168, 225)", cursor: "pointer" }}>حفظ</button>
             </div>
           </li>
         </ul>

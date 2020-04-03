@@ -676,7 +676,6 @@ select#Resolution {
 /*=============== DWTcontainerBtm ===============*/
 
 #DWTcontainerBtm {
-    position: relative;
     float: left;
     width: 1295px
 }
