@@ -402,7 +402,7 @@ export default class DWT extends React.Component {
 
     checkErrorStringWithErrorCode(errorCode, errorString, responseString) {
         if (errorCode === 0) {
-            this.appendMessage("<span style='color:#cE5E04'><b>" + errorString + "</b></span><br />");
+            //this.appendMessage("<span style='color:#cE5E04'><b>" + errorString + "</b></span><br />");
 
             return true;
         }
@@ -532,7 +532,7 @@ export default class DWT extends React.Component {
             return;
         }
         this.DWObject.Rotate(this.DWObject.CurrentImageIndexInBuffer, 180, true);
-        this.appendMessage('<b>Rotate 180: </b>');
+        this.appendMessage('<b>دوران ١٨٠ درجة</b>');
         if (this.checkErrorString()) {
             return;
         }
@@ -554,7 +554,7 @@ export default class DWT extends React.Component {
             return;
         }
         this.DWObject.Flip(this.DWObject.CurrentImageIndexInBuffer);
-        this.appendMessage('<b>Flip: </b>');
+        this.appendMessage('<b>قلب الصورة</b>');
         if (this.checkErrorString()) {
             return;
         }
@@ -580,7 +580,7 @@ export default class DWT extends React.Component {
             }
             return;
         } else {
-            this.appendMessage("<b>Crop: </b>failed. Please first select the area you'd like to crop.<br />");
+            this.appendMessage("<b>خطأ في القطع ، من فضلك اختر أولا المساحة التي تريد قطعها<br />");
         }
     }
 
