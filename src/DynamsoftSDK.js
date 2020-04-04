@@ -22,6 +22,7 @@ class UI extends React.Component {
                             <li><img src="Images/RemoveAllImages.png" title="Remove All Images" alt="Remove All" id="DW_btnRemoveAllImages" onClick={this.props.btnRemoveAllImages_onclick} /></li>
                             <li><img src="Images/ChangeSize.png" title="Change Image Size" alt="Change Size" id="btnChangeImageSize" onClick={this.props.btnChangeImageSize_onclick} /> </li>
                             <li><img src="Images/Crop.png" title="Crop" alt="Crop" id="btnCrop" /></li>
+                            <li/><li/><li/>
                         </ul>
                         <div id="ImgSizeEditor" style={{ visibility: "hidden" }}>
                             <ul>
@@ -190,6 +191,7 @@ class UI extends React.Component {
                             </li>
                         </ul>
                     </div>
+                    <div id="divNoteMessage"> </div>
                 </div>
                 <Metadata 
                     saveMetadataObj = {this.props.saveMetadataObj}
@@ -197,7 +199,7 @@ class UI extends React.Component {
                 />
                 <div id="DWTcontainerBtm" style={{ textAlign: "left" }} className="clearfix">
                     <div id="DWTemessageContainer"></div>
-                    <div id="divNoteMessage"> </div>
+                    
                 </div>
             </div>
         );
@@ -373,7 +375,7 @@ export default class DWT extends React.Component {
 
     loadDWT() {
         Dynamsoft.WebTwainEnv.ProductKey = productKey;
-        Dynamsoft.WebTwainEnv.Containers = [{ ContainerId: this.containerId, Width: '583px', Height: '513px' }];
+        Dynamsoft.WebTwainEnv.Containers = [{ ContainerId: this.containerId, Width: '583px', Height: '688px' }];
         Dynamsoft.WebTwainEnv.Load();
     }
 
@@ -461,7 +463,7 @@ export default class DWT extends React.Component {
     }
     btnLoadImagesOrPDFs_onclick() {
         var OnPDFSuccess = () => {
-            this.appendMessage("Loaded an image successfully.<br/>");
+            this.appendMessage("تم تحميل الصورة بنجاح<br/>");
             this.updatePageInfo();
         };
 
@@ -477,7 +479,7 @@ export default class DWT extends React.Component {
 
     checkIfImagesInBuffer() {
         if (this.DWObject.HowManyImagesInBuffer === 0) {
-            this.appendMessage("There is no image in buffer.<br />")
+            this.appendMessage("لا توجد صورة<br />")
             return false;
         }
         else
@@ -485,7 +487,6 @@ export default class DWT extends React.Component {
     }
 
     setMetadataEnabled(){
-        debugger;
         if(!this.DWObject){
             this.setState({...this.state,metadataEnabled:false});
         }
@@ -509,7 +510,7 @@ export default class DWT extends React.Component {
             return;
         }
         this.DWObject.RotateRight(this.DWObject.CurrentImageIndexInBuffer);
-        this.appendMessage('<b>Rotate right: </b>');
+        this.appendMessage('<b>دوران لليمين</b>');
         if (this.checkErrorString()) {
             return;
         }
@@ -520,7 +521,7 @@ export default class DWT extends React.Component {
             return;
         }
         this.DWObject.RotateLeft(this.DWObject.CurrentImageIndexInBuffer);
-        this.appendMessage('<b>Rotate left: </b>');
+        this.appendMessage('<b>دوران لليسار</b>');
         if (this.checkErrorString()) {
             return;
         }
@@ -542,7 +543,7 @@ export default class DWT extends React.Component {
             return;
         }
         this.DWObject.Mirror(this.DWObject.CurrentImageIndexInBuffer);
-        this.appendMessage('<b>Mirror: </b>');
+        this.appendMessage('<b>مرآة</b>');
         if (this.checkErrorString()) {
             return;
         }
@@ -573,7 +574,7 @@ export default class DWT extends React.Component {
             this._iTop = 0;
             this._iRight = 0;
             this._iBottom = 0;
-            this.appendMessage('<b>Crop: </b>');
+            this.appendMessage('<b>قطع الصورة</b>');
             if (this.checkErrorString()) {
                 return;
             }
@@ -614,13 +615,13 @@ export default class DWT extends React.Component {
         if (!this.re.test(document.getElementById("img_height").value)) {
             document.getElementById("img_height").className += " invalid";
             document.getElementById("img_height").focus();
-            this.appendMessage("Please input a valid <b>height</b>.<br />");
+            this.appendMessage("من فضلك أدخل طول صحيح<br />");
             return;
         }
         if (!this.re.test(document.getElementById("img_width").value)) {
             document.getElementById("img_width").className += " invalid";
             document.getElementById("img_width").focus();
-            this.appendMessage("Please input a valid <b>width</b>.<br />");
+            this.appendMessage("من فضلك أدخل عرض صحيح<br />");
             return;
         }
         this.DWObject.ChangeImageSize(
@@ -629,7 +630,7 @@ export default class DWT extends React.Component {
             document.getElementById("img_height").value,
             document.getElementById("InterpolationMethod").selectedIndex + 1
         );
-        this.appendMessage('<b>Change Image Size: </b>');
+        this.appendMessage('<b>تغيير حجم الصورة: </b>');
         if (this.checkErrorString()) {
             document.getElementById("ImgSizeEditor").style.visibility = "hidden";
             return;
@@ -837,8 +838,8 @@ export default class DWT extends React.Component {
         var strFilePath = _txtFileNameforSave.value + "." + strimgType_save;
 
         var OnSuccess = () => {
-            this.appendMessage('<b>Save Image: </b>');
-            this.checkErrorStringWithErrorCode(0, "Successful.");
+            this.appendMessage('<b>تم حفظ الصورة</b>');
+            this.checkErrorStringWithErrorCode(0, "بنجاح");
         };
 
         var OnFailure = (errorCode, errorString) => {
@@ -878,7 +879,7 @@ export default class DWT extends React.Component {
 
         if (vAsyn === false) {
             if (bSave)
-                this.appendMessage('<b>Save Image: </b>');
+                this.appendMessage('<b>تم حفظ الصورة</b>');
             if (this.checkErrorString()) {
                 return;
             }
@@ -925,8 +926,8 @@ export default class DWT extends React.Component {
         var uploadfilename = fileName + "." + document.getElementsByName("ImageType").item(i).value;
 
         var OnSuccess = (httpResponse) => {
-            this.appendMessage('<b>Upload: </b>');
-            this.checkErrorStringWithErrorCode(0, "Successful.");
+            this.appendMessage('<b>تحميل</b>');
+            this.checkErrorStringWithErrorCode(0, "بنجاح");
             /*if (strActionPage.indexOf("SaveToFile") !== -1) {
                 alert("Successful")//if save to file.
             } else {
