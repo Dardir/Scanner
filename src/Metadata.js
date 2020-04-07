@@ -182,7 +182,7 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
           </li>
           <li>
             <div id="div_SaveMetadata" className="divTableStyle">
-              <button id="btnSaveForm" onClick={saveButtonClicked} disabled = {!metadataEnabled} style={{ color: "rgb(255, 255, 255)", backgroundColor: "rgb(80, 168, 225)", cursor: "pointer" }}>حفظ</button>
+              <button id="btnSaveForm" onClick={saveButtonClicked} disabled = {!metadataEnabled}>حفظ</button>
             </div>
           </li>
         </ul>

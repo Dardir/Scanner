@@ -590,6 +590,26 @@ select#Resolution {
     text-align: center;
 }
 
+#btnSaveForm{
+    color: "rgb(255, 255, 255)";
+    cursor: pointer;
+    line-height: 28px;
+    font-size: 14px;
+    color: #fff;
+    background: #50a8e1;
+    border: none;
+    outline: none;
+    box-shadow: 0 5px #999;
+}
+
+#btnSaveForm:hover {background-color: #075991}
+
+#btnSaveForm:active {
+    background-color: #075991;
+    box-shadow: 0 5px #666;
+    transform: translateY(2px);
+  }
+
 
 
 #tblLoadImage {
