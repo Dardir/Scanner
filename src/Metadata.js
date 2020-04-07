@@ -21,12 +21,14 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
     delegationSubject: '',
     keySearch: ''
   });
+  const [disableBttn, setDisableBttn] = useState (true);
 
   const updateField = e => {
     setState({
       ...metadataform,
       [e.target.name]: e.target.value
     });
+    setSaveDisabled();
   };
 
   const handleDelegationDateChange = date => {
@@ -44,6 +46,14 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
   const saveButtonClicked = () => {
     saveMetadataObj(metadataform);
   }
+  const setSaveDisabled = () =>{
+    if(!metadataform.counsulate || metadataform.counsulate === '' 
+    || !metadataform.delegationType || metadataform.delegationType === ''){
+      setDisableBttn(true);
+    }
+    setDisableBttn(false);
+  }
+
   return (
     <div id="Metadata">
       <div id="divEmbassy" className="divinput">
@@ -182,7 +192,7 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
           </li>
           <li>
             <div id="div_SaveMetadata" className="divTableStyle">
-              <button id="btnSaveForm" onClick={saveButtonClicked} disabled = {!metadataEnabled}>حفظ</button>
+              <button id="btnSaveForm" onClick={saveButtonClicked} disabled = {disableBttn}>حفظ</button>
             </div>
           </li>
         </ul>
