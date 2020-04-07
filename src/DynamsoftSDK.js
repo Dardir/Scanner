@@ -663,7 +663,7 @@ export default class DWT extends React.Component {
     }
 
     saveMetadataObj = (var_metadataObj) => {
-        this.appendMessage("تم حفظ البيانات");
+        this.appendMessage("<br>تم حفظ البيانات</br>");
         this.setState({...this.state,metadataObj:var_metadataObj});
     }
 

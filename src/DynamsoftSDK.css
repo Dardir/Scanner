@@ -592,7 +592,6 @@ select#Resolution {
 
 #btnSaveForm{
     color: "rgb(255, 255, 255)";
-    cursor: pointer;
     line-height: 28px;
     font-size: 14px;
     color: #fff;
@@ -602,7 +601,7 @@ select#Resolution {
     box-shadow: 0 5px #999;
 }
 
-#btnSaveForm:hover {background-color: #075991}
+#btnSaveForm:hover:enabled {background-color: #075991;cursor: pointer;}
 
 #btnSaveForm:active {
     background-color: #075991;
