@@ -585,6 +585,12 @@ select#Resolution {
 #div_DelegationDetails{
     position: relative;
 }
+#div_SaveMetadata{
+    position: relative;
+    text-align: center;
+}
+
+
 
 #tblLoadImage {
     position: absolute;
