@@ -78,29 +78,6 @@ ul {
     text-align: center;
 }
 
-.btnOrg {
-    padding: 0 15px;
-    height: 30px;
-    line-height: 28px;
-    font-size: 14px;
-    color: #fff;
-    background: #50a8e1;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-right-colors: 3px;
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    -ms-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-}
-
-.btnOrg:hover {
-    background: #61c2ec;
-}
 
 .d-btn {
     display: inline-block;
@@ -590,7 +567,7 @@ select#Resolution {
     text-align: center;
 }
 
-#btnSaveForm,#btnUpload,#btnSave,#btnScan{
+#btnSaveForm,#btnUpload,#btnSave,#btnScan,.btnOrg{
     color: "rgb(255, 255, 255)";
     line-height: 28px;
     font-size: 14px;
@@ -601,9 +578,9 @@ select#Resolution {
     box-shadow: 0 5px #999;
 }
 
-#btnSaveForm:hover:enabled,#btnUpload:hover:enabled,#btnSave:hover:enabled,#btnScan:hover:enabled {background-color: #075991;cursor: pointer;}
+#btnSaveForm:hover:enabled,#btnUpload:hover:enabled,#btnSave:hover:enabled,#btnScan:hover:enabled,.btnOrg:hover:enabled {background-color: #075991;cursor: pointer;}
 
-#btnSaveForm:active,#btnUpload:active,#btnSave:active,#btnScan:active {
+#btnSaveForm:active,#btnUpload:active,#btnSave:active,#btnScan:active,.btnOrg:active {
     background-color: #075991;
     box-shadow: 0 5px #666;
     transform: translateY(2px);
