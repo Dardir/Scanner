@@ -125,7 +125,7 @@ class UI extends React.Component {
                                             </ul>
                                         </li>
                                         <li className="tc">
-                                            <button id="btnScan" onClick={this.props.acquireImage} style={{ color: "rgb(255, 255, 255)", backgroundColor: "rgb(80, 168, 225)", cursor: "pointer" }}>المسح الضوئي</button>
+                                            <button id="btnScan" onClick={this.props.acquireImage} >المسح الضوئي</button>
                                         </li>
                                     </ul>
                                     <div id="tblLoadImage" style={{ visibility: "hidden" }}>
@@ -187,7 +187,7 @@ class UI extends React.Component {
                             </li>
                             <li>
                                 <button id="btnSave" className="btnOrg" onClick={() => { this.props.saveUploadImage('local') }} >حفظ علي الحاسوب</button>
-                                <button id="btnUpload" className="btnOrg" onClick={() => { this.props.saveUploadImage('server') }} >تحميل الي النظام</button>
+                                <button id="btnUpload" onClick={() => { this.props.saveUploadImage('server') }} >تحميل الي النظام</button>
                             </li>
                         </ul>
                     </div>
