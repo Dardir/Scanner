@@ -2,8 +2,8 @@ import React from 'react';
 import './DynamsoftSDK.css';
 import Dynamsoft from 'dwt';
 import $ from 'jquery';
-import {productKey} from './ProductKey' 
 import Metadata from './Metadata'
+import uuid from 'react-uuid'
 
 class UI extends React.Component {
     render() {
@@ -22,7 +22,7 @@ class UI extends React.Component {
                             <li><img src="Images/RemoveAllImages.png" title="Remove All Images" alt="Remove All" id="DW_btnRemoveAllImages" onClick={this.props.btnRemoveAllImages_onclick} /></li>
                             <li><img src="Images/ChangeSize.png" title="Change Image Size" alt="Change Size" id="btnChangeImageSize" onClick={this.props.btnChangeImageSize_onclick} /> </li>
                             <li><img src="Images/Crop.png" title="Crop" alt="Crop" id="btnCrop" /></li>
-                            <li/><li/><li/>
+                            <li /><li /><li />
                         </ul>
                         <div id="ImgSizeEditor" style={{ visibility: "hidden" }}>
                             <ul>
@@ -80,7 +80,7 @@ class UI extends React.Component {
                             <li>
                                 <div className="divType">
                                     <div className="mark_arrow expanded"></div>
-                                  <b>المسح الضوئي</b></div>
+                                    <b>المسح الضوئي</b></div>
                                 <div id="div_ScanImage" className="divTableStyle">
                                     <ul id="ulScaneImageHIDE">
                                         <li>
@@ -142,7 +142,7 @@ class UI extends React.Component {
                             <li id="liLoadImage">
                                 <div className="divType">
                                     <div className="mark_arrow collapsed"></div>
-                                   <b> تحميل الصور أو الملفات</b></div>
+                                    <b> تحميل الصور أو الملفات</b></div>
                                 <div id="div_LoadLocalImage" style={{ display: "none" }} className="divTableStyle">
                                     <ul>
                                         <li className="tc">
@@ -193,13 +193,13 @@ class UI extends React.Component {
                     </div>
                     <div id="divNoteMessage"> </div>
                 </div>
-                <Metadata 
-                    saveMetadataObj = {this.props.saveMetadataObj}
-                    metadataEnabled = {this.props.metadataEnabled}
+                <Metadata
+                    saveMetadataObj={this.props.saveMetadataObj}
+                    metadataEnabled={this.props.metadataEnabled}
                 />
                 <div id="DWTcontainerBtm" style={{ textAlign: "left" }} className="clearfix">
                     <div id="DWTemessageContainer"></div>
-                    
+
                 </div>
             </div>
         );
@@ -210,7 +210,7 @@ export default class DWT extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            metadataEnabled : false,
+            metadataEnabled: false,
             metadataObj: {}
         }
     }
@@ -374,7 +374,7 @@ export default class DWT extends React.Component {
     }
 
     loadDWT() {
-        Dynamsoft.WebTwainEnv.ProductKey = productKey;
+        Dynamsoft.WebTwainEnv.ProductKey = process.env.REACT_APP_PRODUCT_KEY;
         Dynamsoft.WebTwainEnv.Containers = [{ ContainerId: this.containerId, Width: '583px', Height: '688px' }];
         Dynamsoft.WebTwainEnv.Load();
     }
@@ -486,15 +486,15 @@ export default class DWT extends React.Component {
             return true;
     }
 
-    setMetadataEnabled(){
-        if(!this.DWObject){
-            this.setState({...this.state,metadataEnabled:false});
+    setMetadataEnabled() {
+        if (!this.DWObject) {
+            this.setState({ ...this.state, metadataEnabled: false });
         }
         if (this.DWObject.HowManyImagesInBuffer === 0) {
-            this.setState({...this.state,metadataEnabled:false});
+            this.setState({ ...this.state, metadataEnabled: false });
         }
-        else{
-            this.setState({...this.state,metadataEnabled:true});
+        else {
+            this.setState({ ...this.state, metadataEnabled: true });
         }
     }
 
@@ -664,7 +664,7 @@ export default class DWT extends React.Component {
 
     saveMetadataObj = (var_metadataObj) => {
         this.appendMessage("<br>تم حفظ البيانات</br>");
-        this.setState({...this.state,metadataObj:var_metadataObj});
+        this.setState({ ...this.state, metadataObj: var_metadataObj });
     }
 
     render() {
@@ -813,11 +813,24 @@ export default class DWT extends React.Component {
         if (type === 'local') {
             this.btnSave_onclick();
         } else if (type === 'server') {
-            this.btnUpload_onclick()
+            //this.btnUpload_onclick();
+            this.uploadToAlfresco();
         }
     }
+    uploadToAlfresco(){
+        debugger;
+        if (!this.checkIfImagesInBuffer()) {
+            return;
+        }
+        const NM_imgType_save = document.getElementsByName("ImageType");
+        const element = Array.from(NM_imgType_save).find(element => element.checked);
+        const extension = element.value;
+        const fileName = document.getElementById("txt_fileName").value+"_" + uuid()+ "." + extension;
+        const filePath = process.env.REACT_APP_PRODUCT_UPLOAD_FOLDER + '/'+fileName;
+        this.btnSave_onclick(filePath);
+    }
 
-    btnSave_onclick() {
+    btnSave_onclick(givenFilePath) {
         if (!this.checkIfImagesInBuffer()) {
             return;
         }
@@ -829,16 +842,22 @@ export default class DWT extends React.Component {
                 break;
             }
         }
-        this.DWObject.IfShowFileDialog = true;
-        var _txtFileNameforSave = document.getElementById("txt_fileName");
-        if (_txtFileNameforSave)
-            _txtFileNameforSave.className = "";
-        var bSave = false;
+        var strFilePath = '';
+        if (!givenFilePath || givenFilePath === '') {
+            this.DWObject.IfShowFileDialog = true;
+            var _txtFileNameforSave = document.getElementById("txt_fileName");
+            if (_txtFileNameforSave)
+                _txtFileNameforSave.className = "";
+            var bSave = false;
 
-        var strFilePath = _txtFileNameforSave.value + "." + strimgType_save;
+            strFilePath = _txtFileNameforSave.value + "." + strimgType_save;
+        }else{
+            this.DWObject.IfShowFileDialog = false;
+            strFilePath = givenFilePath;
+        }
 
         var OnSuccess = () => {
-            this.appendMessage('<b>تم حفظ الصورة</b>');
+            this.appendMessage('<br/><b>تم حفظ الصورة</b><br/>');
             this.checkErrorStringWithErrorCode(0, "بنجاح");
         };
 

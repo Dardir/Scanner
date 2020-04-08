@@ -1,1 +1,0 @@
-export const productKey = 't0141cQMAABsK/NkqsTfaKgyf78XRetYpoAIQglfEamAuEaUzgpoV6DNjG/di6O9wg1+phIWoiAI6J6uLP0b6+76lunYU2coCwyuzHUJns2AqczQxjN56HMb/mE1//qXBnG54o9ywYDw3kuYhor+vyDN/DAvGcyNpnkLmsxkaLRgWjOdGcG3crDdafwFGaK8i';
