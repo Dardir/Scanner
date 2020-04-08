@@ -4,6 +4,7 @@ import Dynamsoft from 'dwt';
 import $ from 'jquery';
 import Metadata from './Metadata'
 import uuid from 'react-uuid'
+import axios from 'axios'
 
 class UI extends React.Component {
     render() {
@@ -817,17 +818,29 @@ export default class DWT extends React.Component {
             this.uploadToAlfresco();
         }
     }
-    uploadToAlfresco(){
-        debugger;
+    uploadToAlfresco() {
         if (!this.checkIfImagesInBuffer()) {
             return;
         }
         const NM_imgType_save = document.getElementsByName("ImageType");
         const element = Array.from(NM_imgType_save).find(element => element.checked);
         const extension = element.value;
-        const fileName = document.getElementById("txt_fileName").value+"_" + uuid()+ "." + extension;
-        const filePath = process.env.REACT_APP_PRODUCT_UPLOAD_FOLDER + '/'+fileName;
+        const fileName = document.getElementById("txt_fileName").value + "_" + uuid() + "." + extension;
+        const filePath = process.env.REACT_APP_PRODUCT_UPLOAD_FOLDER + '/' + fileName;
         this.btnSave_onclick(filePath);
+        
+        //sending saved image to the backend web server which should read the file and send it to Alfresco
+        axios.post(process.env.REACT_APP_UPLOADER_URL, {
+            metadataObj: this.state.metadataObj,
+            filePath
+        })
+            .then(({ data }) => {
+                if (data === 'Ok') {
+                    this.appendMessage('<br/><b>تم ارسال الملف الي النظام بنجاح</b><br/>');
+                }else{
+                    this.appendMessage(data);
+                }
+            })
     }
 
     btnSave_onclick(givenFilePath) {
@@ -851,7 +864,7 @@ export default class DWT extends React.Component {
             var bSave = false;
 
             strFilePath = _txtFileNameforSave.value + "." + strimgType_save;
-        }else{
+        } else {
             this.DWObject.IfShowFileDialog = false;
             strFilePath = givenFilePath;
         }
