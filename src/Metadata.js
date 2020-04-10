@@ -28,7 +28,7 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
       ...metadataform,
       [e.target.name]: e.target.value
     });
-    setSaveDisabled();
+    setSaveDisabled(e.target.name,e.target.value);
   };
 
   const handleDelegationDateChange = date => {
@@ -46,12 +46,12 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
   const saveButtonClicked = () => {
     saveMetadataObj(metadataform);
   }
-  const setSaveDisabled = () =>{
-    if(!metadataform.counsulate || metadataform.counsulate === '' 
-    || !metadataform.delegationType || metadataform.delegationType === ''){
-      setDisableBttn(true);
+  const setSaveDisabled = (name,value) =>{
+    switch(name){
+      case'counsulate': (value !== '' && value !=='0' && metadataform.delegationType && metadataform.delegationType !== '' && metadataform.delegationType !== '0')?setDisableBttn(false):setDisableBttn(true);break;
+      case'delegationType': (value !== '' && value !=='0' && metadataform.counsulate && metadataform.counsulate !== '' && metadataform.counsulate !=='0')?setDisableBttn(false):setDisableBttn(true);break;
+      default: (metadataform.delegationType && metadataform.delegationType !== '' && metadataform.delegationType !== '0' &&metadataform.counsulate && metadataform.counsulate !== '' && metadataform.counsulate !=='0')?setDisableBttn(false):setDisableBttn(true);
     }
-    setDisableBttn(false);
   }
 
   return (
