@@ -212,7 +212,7 @@ export default class DWT extends React.Component {
         super(props);
         this.state = {
             metadataEnabled: false,
-            metadataObj: {}
+            metadataObj: null
         }
     }
 
@@ -464,7 +464,7 @@ export default class DWT extends React.Component {
     }
     btnLoadImagesOrPDFs_onclick() {
         var OnPDFSuccess = () => {
-            this.appendMessage("تم تحميل الصورة بنجاح<br/>");
+            this.appendMessage("تم تحميل الصورة بنجاح");
             this.updatePageInfo();
         };
 
@@ -511,7 +511,7 @@ export default class DWT extends React.Component {
             return;
         }
         this.DWObject.RotateRight(this.DWObject.CurrentImageIndexInBuffer);
-        this.appendMessage('<b>دوران لليمين</b>');
+        this.appendMessage('<br/><b>دوران لليمين</b>');
         if (this.checkErrorString()) {
             return;
         }
@@ -522,7 +522,7 @@ export default class DWT extends React.Component {
             return;
         }
         this.DWObject.RotateLeft(this.DWObject.CurrentImageIndexInBuffer);
-        this.appendMessage('<b>دوران لليسار</b>');
+        this.appendMessage('<br/><b>دوران لليسار</b>');
         if (this.checkErrorString()) {
             return;
         }
@@ -533,7 +533,7 @@ export default class DWT extends React.Component {
             return;
         }
         this.DWObject.Rotate(this.DWObject.CurrentImageIndexInBuffer, 180, true);
-        this.appendMessage('<b>دوران ١٨٠ درجة</b>');
+        this.appendMessage('<br/><b>دوران ١٨٠ درجة</b>');
         if (this.checkErrorString()) {
             return;
         }
@@ -544,7 +544,7 @@ export default class DWT extends React.Component {
             return;
         }
         this.DWObject.Mirror(this.DWObject.CurrentImageIndexInBuffer);
-        this.appendMessage('<b>مرآة</b>');
+        this.appendMessage('<br/><b>مرآة</b>');
         if (this.checkErrorString()) {
             return;
         }
@@ -555,7 +555,7 @@ export default class DWT extends React.Component {
             return;
         }
         this.DWObject.Flip(this.DWObject.CurrentImageIndexInBuffer);
-        this.appendMessage('<b>قلب الصورة</b>');
+        this.appendMessage('<br/><b>قلب الصورة</b>');
         if (this.checkErrorString()) {
             return;
         }
@@ -822,13 +822,17 @@ export default class DWT extends React.Component {
         if (!this.checkIfImagesInBuffer()) {
             return;
         }
+        if (!this.state.metadataObj) {
+            this.appendMessage('<br/><p style="color:red;">من فضلك أدخل بيانات الملف</p>');
+            return;
+        }
         const NM_imgType_save = document.getElementsByName("ImageType");
         const element = Array.from(NM_imgType_save).find(element => element.checked);
         const extension = element.value;
         const fileName = document.getElementById("txt_fileName").value + "_" + uuid() + "." + extension;
         const filePath = process.env.REACT_APP_PRODUCT_UPLOAD_FOLDER + '/' + fileName;
         this.btnSave_onclick(filePath);
-        
+
         //sending saved image to the backend web server which should read the file and send it to Alfresco
         axios.post(process.env.REACT_APP_UPLOADER_URL, {
             metadataObj: this.state.metadataObj,
@@ -837,9 +841,13 @@ export default class DWT extends React.Component {
             .then(({ data }) => {
                 if (data === 'Ok') {
                     this.appendMessage('<br/><b>تم ارسال الملف الي النظام بنجاح</b><br/>');
-                }else{
+                } else {
+                    this.appendMessage('<br/><p style="color:red;">تعذر ارسال الملف</p><br/>');
                     this.appendMessage(data);
                 }
+            }, (error) => {
+                this.appendMessage('<br/><p style="color:red;">تعذر ارسال الملف</p>');
+                this.appendMessage('<br/><p style="color:red;">'+error+'</p>');
             })
     }
 
@@ -870,7 +878,7 @@ export default class DWT extends React.Component {
         }
 
         var OnSuccess = () => {
-            this.appendMessage('<br/><b>تم حفظ الصورة</b><br/>');
+            this.appendMessage('<br/><b>تم حفظ الملف</b><br/>');
             this.checkErrorStringWithErrorCode(0, "بنجاح");
         };
 
