@@ -87,15 +87,71 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                                 </div>
                                 <div className="internal-column">
                                     <li style={{ textAlign: "right", listStyleType: "none" }}>
-                                        <label  htmlFor="txt_barcode">
+                                        <label htmlFor="txt_barcode">
                                             <p>باركود</p>
                                         </label>
-                                        <input type="text" size="20" id="txt_barcode" style={{paddingLeft:"5px;"}} name="barcode" value={metadataform.barcode} onChange={updateField} />
+                                        <input type="text" size="20" id="txt_barcode" style={{ paddingLeft: "5px;" }} name="barcode" value={metadataform.barcode} onChange={updateField} />
                                     </li>
                                 </div>
-
                             </div>
+                            <div className="row">
+                                <div className="internal-column">
+                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
+                                        <label htmlFor="txt_delegationNumber">
+                                            <p>رقم التوكيل</p>
+                                        </label>
+                                        <input type="text" size="20" id="txt_delegationNumber" name="delegationNumber" value={metadataform.delegationNumber} onChange={updateField} />
+                                    </li>
+                                </div>
+                                <div className="internal-column">
+                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
+                                        <label htmlFor="date_delegationDate">
+                                            <p style={{ paddingLeft: "74px" }}>تاريخ التوكيل</p>
+                                        </label>
+                                        <DatePicker
+                                            selected={metadataform.delegationDate}
+                                            onChange={handleDelegationDateChange}
+                                            id="date_delegationDate"
+                                            onSelect={handleDelegationDateChange}
+                                        />
 
+                                    </li>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="internal-column">
+                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
+                                        <label htmlFor="date_transactionDate">
+                                            <p style={{ paddingLeft: "74px" }}>تاريخ المعاملة</p>
+                                        </label>
+                                        <DatePicker
+                                            selected={metadataform.delegationDate}
+                                            onChange={handleDelegationDateChange}
+                                            id="date_transactionDate"
+                                            onSelect={handleDelegationDateChange}
+                                        />
+
+                                    </li>
+                                </div>
+                                <div className="internal-column">
+                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
+                                        <label htmlFor="txt_employeeName">
+                                            <p>اسم الموظف</p>
+                                        </label>
+                                        <input type="text" size="20" id="txt_employeeName" name="employeeName" value={metadataform.employeeName} onChange={updateField} />
+                                    </li>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="internal-column">
+                                <li style={{ textAlign: "right", listStyleType: "none" }}>
+                                    <label  htmlFor="txt_employeeNumber">
+                                        <p>رقم الموظف</p>
+                                    </label>
+                                    <input type="text" size="20" id="txt_employeeNumber" name="employeeNumber" value={metadataform.employeeNumber} onChange={updateField} />
+                                </li>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

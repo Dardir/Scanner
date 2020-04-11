@@ -66,3 +66,7 @@ li.search-header button:active {
     border: solid 1px #ccc;
     width: 95%
 }
+
+#SearchDetails{
+    height: 415px;
+}
