@@ -4,7 +4,22 @@ import FileDisplay from './FileDisplay';
 
 const FileSearchApp = ()=>{
     const [mode, setMode] = useState ('search');
-    const [metadataObj, setmetadataObj] = useState (null);
+    const [metadataObj, setmetadataObj] = useState({
+        counsulate: '',
+        barcode: '',
+        delegationNumber: '',
+        delegationDate: '',
+        transactionDate: '',
+        employeeName: '',
+        employeeNumber: '',
+        delegationType: '',
+        delegator: '',
+        delegatorPassport: '',
+        delegatedTo: '',
+        delegatedToPassport: '',
+        delegationSubject: '',
+        keySearch: ''
+      });
     const [file, setFile] = useState (null);
 
     const displayFile = (metadataObj,file)=>{

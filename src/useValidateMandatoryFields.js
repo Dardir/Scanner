@@ -1,5 +1,4 @@
 const useValidateMandatoryFields = (objectToValidate, mandatoryKeys) =>{
-    debugger;
     let nullArray = [];
     Object.keys(objectToValidate).forEach(key => {
         if(mandatoryKeys.includes(key)){
