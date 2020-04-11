@@ -66,7 +66,7 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
               <ul id="ulEmbassyDetails">
                 <li>
                   <label htmlFor="counsulate">
-                    <p>القنصلية</p>
+                    <p><p style={{ color: "red", paddingLeft: "5px" }}>*</p>القنصلية</p>
                   </label>
                   <select size="1" id="counsulate"  name="counsulate" onChange={updateField} disabled = {!metadataEnabled}>
                     <option value="0">اختر القنصلية</option>
@@ -87,13 +87,13 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegationNumber">
-                    <p>رقم التوكيل</p>
+                    <p><p style={{ color: "red", paddingLeft: "5px" }}>*</p>رقم التوكيل</p>
                   </label>
                   <input type="text" size="20" id="txt_delegationNumber" name="delegationNumber" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="date_delegationDate">
-                    <p>تاريخ التوكيل</p>
+                    <p><p style={{ color: "red", paddingLeft: "5px" }}>*</p>تاريخ التوكيل</p>
                   </label>
                   <DatePicker
                     selected={metadataform.delegationDate}
@@ -105,7 +105,7 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="date_transactionDate">
-                    <p>تاريخ المعاملة</p>
+                    <p><p style={{ color: "red", paddingLeft: "5px" }}>*</p>تاريخ المعاملة</p>
                   </label>
                   <DatePicker
                     selected={metadataform.transactionDate}
@@ -117,13 +117,13 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_employeeName">
-                    <p>اسم الموظف</p>
+                    <p><p style={{ color: "red", paddingLeft: "5px" }}>*</p>اسم الموظف</p>
                   </label>
                   <input type="text" size="20" id="txt_employeeName" name="employeeName" onChange={updateField} disabled = {!metadataEnabled} />
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_employeeNumber">
-                    <p>رقم الموظف</p>
+                    <p><p style={{ color: "red", paddingLeft: "5px" }}>*</p>رقم الموظف</p>
                   </label>
                   <input type="text" size="20" id="txt_employeeNumber" name="employeeNumber" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
@@ -138,7 +138,7 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
               <ul id="ulDelegationDetails">
                 <li>
                   <label htmlFor="delegationType">
-                    <p>نوع التوكيل</p>
+                    <p><p style={{ color: "red", paddingLeft: "5px" }}>*</p>نوع التوكيل</p>
                   </label>
                   <select size="1" id="delegationType"  name="delegationType" onChange={updateField} disabled = {!metadataEnabled}>
                   <option value="0">اختر نوع التوكيل</option>
@@ -153,25 +153,25 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegator">
-                    <p>الموكل</p>
+                    <p><p style={{ color: "red", paddingLeft: "5px" }}>*</p>الموكل</p>
                   </label>
                   <input type="text" size="20" id="txt_delegator" name="delegator" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegatorPassport">
-                    <p>رقم جواز سفر الموكل</p>
+                    <p><p style={{ color: "red", paddingLeft: "5px" }}>*</p>رقم جواز سفر الموكل</p>
                   </label>
                   <input type="text" size="20" id="txt_delegatorPassport" name="delegatorPassport" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegatedTo">
-                    <p> الموكل اليه</p>
+                    <p><p style={{ color: "red", paddingLeft: "5px" }}>*</p> الموكل اليه</p>
                   </label>
                   <input type="text" size="20" id="txt_delegatedTo" name="delegatedTo" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegatedToPassport">
-                    <p> رقم جواز سفر الموكل اليه</p>
+                    <p><p style={{ color: "red", paddingLeft: "5px" }}>*</p> رقم جواز سفر الموكل اليه</p>
                   </label>
                   <input type="text" size="20" id="txt_delegatedToPassport" name="delegatedToPassport" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
