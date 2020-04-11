@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import DWT from './DynamsoftSDK';
+import FileSearchApp from './FileSearchApp';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -10,7 +12,13 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
-        <DWT />
+        <Router>
+          <Switch>
+            <Route exact path='/' component={DWT} />
+            <Route path='/scan' component={DWT} />
+            <Route path='/search' component={FileSearchApp} />
+          </Switch>
+        </Router>
       </div>
     );
   }
