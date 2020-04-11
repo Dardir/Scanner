@@ -1,4 +1,5 @@
 const useValidateAnyValueInFields = (objectToValidate) => {
+    debugger;
     let nullArray = [];
     Object.keys(objectToValidate).forEach(key => {
         if (objectToValidate[key] === null || objectToValidate[key] === '') {
@@ -8,7 +9,7 @@ const useValidateAnyValueInFields = (objectToValidate) => {
         }
 
     })
-    return [nullArray.every(true)];
+    return [nullArray.every(element => element === true)];
 }
 
 export default useValidateAnyValueInFields;

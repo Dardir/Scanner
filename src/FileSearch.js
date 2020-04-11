@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './DynamsoftSDK.css';
 import { counsulates, delegationTypes } from './ReferenceData';
 import DatePicker from "react-datepicker";
+import useValidateAnyValueInFields from './useValidateAnyValueInFields';
 
 const FileSearch = ({ initialMetaData, displayFile }) => {
     const [metadataform, setState] = useState({
@@ -20,6 +21,7 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
         delegationSubject: initialMetaData.delegationSubject,
         keySearch: initialMetaData.keySearch
     });
+    const [isDisabled] = useValidateAnyValueInFields(metadataform);
     const updateField = e => {
         setState({
             ...metadataform,
@@ -48,7 +50,7 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto" />
                     <form className="form-inline">
-                        <button className="btn btn-primary active" aria-pressed="true" onClick={searchForFile} style={{ width: "133px" }} disabled={false}>ابحث</button>
+                        <button className="btn btn-primary active" aria-pressed="true" onClick={searchForFile} style={{ width: "133px" }} disabled={isDisabled}>ابحث</button>
                     </form>
                 </div>
             </nav>
