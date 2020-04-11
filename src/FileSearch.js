@@ -187,7 +187,10 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                         <div className="metaDivType" style={{ borderStyle: "ridge" }}>
                             <b> نتــــائـــج البـــحـــث  </b>
                         </div>
-                        لا توجد نتائج بحث
+                        <div id="div_ResultsDetails" className="divTableStyle" style={{ borderStyle: "ridge" }}>
+                        لا توجد نتائج بحث   
+                        </div>
+                       
                     </div>
                 </div>
             </div>
