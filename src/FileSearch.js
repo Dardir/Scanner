@@ -75,37 +75,37 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                                         }
                                     </select>
                                 </li>
-                                <li style={{ paddingTop: "10px",textAlign: "right" }}>
+                                <li style={{ paddingTop: "10px", textAlign: "right" }}>
                                     <label style={{ marginBottom: "-1.5rem" }} htmlFor="txt_delegator">
                                         <p>الموكل</p>
                                     </label>
                                     <input type="text" size="20" id="txt_delegator" name="delegator" onChange={updateField} />
                                 </li>
-                                <li style={{ paddingTop: "10px",textAlign: "right" }}>
+                                <li style={{ paddingTop: "10px", textAlign: "right" }}>
                                     <label style={{ marginBottom: "-1.5rem" }} htmlFor="txt_delegatorPassport">
                                         <p>رقم جواز سفر الموكل</p>
                                     </label>
-                                    <input type="text" size="20" id="txt_delegatorPassport" name="delegatorPassport" onChange={updateField}/>
+                                    <input type="text" size="20" id="txt_delegatorPassport" name="delegatorPassport" onChange={updateField} />
                                 </li>
-                                <li style={{ paddingTop: "10px",textAlign: "right" }}>
+                                <li style={{ paddingTop: "10px", textAlign: "right" }}>
                                     <label style={{ marginBottom: "-1.5rem" }} htmlFor="txt_delegatedTo">
                                         <p> الموكل اليه</p>
                                     </label>
                                     <input type="text" size="20" id="txt_delegatedTo" name="delegatedTo" onChange={updateField} />
                                 </li>
-                                <li style={{ paddingTop: "10px",textAlign: "right" }}>
+                                <li style={{ paddingTop: "10px", textAlign: "right" }}>
                                     <label style={{ marginBottom: "-1.5rem" }} htmlFor="txt_delegatedToPassport">
                                         <p> رقم جواز سفر الموكل اليه</p>
                                     </label>
                                     <input type="text" size="20" id="txt_delegatedToPassport" name="delegatedToPassport" onChange={updateField} />
                                 </li>
-                                <li style={{ paddingTop: "10px",textAlign: "right" }}>
+                                <li style={{ paddingTop: "10px", textAlign: "right" }}>
                                     <label style={{ marginBottom: "-1.5rem" }} htmlFor="txt_keySearch">
                                         <p>كلمات بحثية</p>
                                     </label>
                                     <input type="text" size="20" id="txt_keySearch" name="keySearch" onChange={updateField} />
                                 </li>
-                                <li style={{ paddingTop: "20px",textAlign: "right" }}/>
+                                <li style={{ paddingTop: "20px", textAlign: "right" }} />
                             </ul>
                         </div>
                     </div>
@@ -183,6 +183,12 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                     </div>
                 </div>
                 <div class="row h-50">
+                    <div class="col">
+                        <div className="metaDivType" style={{ borderStyle: "ridge" }}>
+                            <b> نتــــائـــج البـــحـــث  </b>
+                        </div>
+                        لا توجد نتائج بحث
+                    </div>
                 </div>
             </div>
         </div>
