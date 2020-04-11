@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import './DynamsoftSDK.css';
+import './FileSearch.css';
+import './DynamsoftSDK.css'
 import { counsulates, delegationTypes } from './ReferenceData';
 import DatePicker from "react-datepicker";
 import useValidateAnyValueInFields from './useValidateAnyValueInFields';
+
 
 const FileSearch = ({ initialMetaData, displayFile }) => {
     const [metadataform, setState] = useState({
@@ -45,15 +47,13 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
 
     }
     return (
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav mr-auto" />
-                    <form className="form-inline">
-                        <button className="btn btn-primary active" aria-pressed="true" onClick={searchForFile} style={{ width: "133px" }} disabled={isDisabled}>ابحث</button>
-                    </form>
-                </div>
-            </nav>
+        <div id="DWTcontainer" className="container">
+            <ul className="search-header">
+                <li className="search-header">
+                <button onClick={searchForFile} style={{ width: "133px" }} disabled={isDisabled}><b>ابحث</b></button>
+                </li>
+            </ul>
+            
             <div class="container-fluid">
                 <div class="row h-50">
                     <div class="col">
@@ -190,9 +190,9 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                             <b> نتــــائـــج البـــحـــث  </b>
                         </div>
                         <div id="div_ResultsDetails" className="divTableStyle" style={{ borderStyle: "ridge" }}>
-                        لا توجد نتائج بحث   
+                            لا توجد نتائج بحث
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
