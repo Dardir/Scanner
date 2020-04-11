@@ -59,7 +59,86 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                         <div className="metaDivType" style={{ borderStyle: "ridge" }}>
                             <b> تفاصيل التوكيل</b>
                         </div>
-                        <div id="div_DelegationDetails" className="divTableStyle" style={{ borderStyle: "ridge" }}>
+                        <div id="div_DelegationDetails" className="divTableSearchStyle" style={{ borderStyle: "ridge" }}>
+                            <div className="row">
+                                <div className="internal-column">
+                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
+                                        <label htmlFor="delegationType">
+                                            <p>نوع التوكيل</p>
+                                        </label>
+                                        <select size="1" id="delegationType" name="delegationType" onChange={updateField}>
+                                            <option value="0">اختر نوع التوكيل</option>
+                                            {
+                                                delegationTypes.map((item) => {
+                                                    return (
+                                                        <option key={item.key} value={item.key}>{item.value}</option>
+                                                    );
+                                                })
+                                            }
+                                        </select>
+                                    </li>
+                                </div>
+                                <div className="internal-column">
+                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
+                                        <label htmlFor="txt_delegator">
+                                            <p>الموكل</p>
+                                        </label>
+                                        <input type="text" size="20" id="txt_delegator" name="delegator" onChange={updateField} />
+                                    </li>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="internal-column">
+                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
+                                        <label htmlFor="txt_delegatorPassport">
+                                            <p>رقم جواز سفر الموكل</p>
+                                        </label>
+                                        <input type="text" size="20" id="txt_delegatorPassport" name="delegatorPassport" onChange={updateField} />
+                                    </li>
+                                </div>
+                                <div className="internal-column">
+                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
+                                        <label htmlFor="txt_delegatedTo">
+                                            <p> الموكل اليه</p>
+                                        </label>
+                                        <input type="text" size="20" id="txt_delegatedTo" name="delegatedTo" onChange={updateField} />
+                                    </li>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="internal-column">
+                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
+                                        <label htmlFor="txt_delegatedToPassport">
+                                            <p> رقم جواز سفر الموكل اليه</p>
+                                        </label>
+                                        <input type="text" size="20" id="txt_delegatedToPassport" name="delegatedToPassport" onChange={updateField} />
+                                    </li>
+                                </div>
+                                <div className="internal-column">
+                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
+                                        <label htmlFor="txt_keySearch">
+                                            <p>كلمات بحثية</p>
+                                        </label>
+                                        <input type="text" size="20" id="txt_keySearch" name="keySearch" onChange={updateField} />
+                                    </li>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="internal-column" />
+                                <div className="internal-column" />
+                            </div>
+                            <div className="row">
+                                <div className="internal-column" />
+                                <div className="internal-column" />
+                            </div>
+                            <div className="row">
+                                <div className="internal-column" />
+                                <div className="internal-column" />
+                            </div>
+                            <div className="row" style={{ paddingBottom: "3px" }}>
+                                <div className="internal-column" />
+                                <div className="internal-column" />
+                            </div>
                         </div>
                     </div>
                     <div className="column">
@@ -144,17 +223,25 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                             </div>
                             <div className="row">
                                 <div className="internal-column">
-                                <li style={{ textAlign: "right", listStyleType: "none" }}>
-                                    <label  htmlFor="txt_employeeNumber">
-                                        <p>رقم الموظف</p>
-                                    </label>
-                                    <input type="text" size="20" id="txt_employeeNumber" name="employeeNumber" value={metadataform.employeeNumber} onChange={updateField} />
-                                </li>
+                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
+                                        <label htmlFor="txt_employeeNumber">
+                                            <p>رقم الموظف</p>
+                                        </label>
+                                        <input type="text" size="20" id="txt_employeeNumber" name="employeeNumber" value={metadataform.employeeNumber} onChange={updateField} />
+                                    </li>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="row">
+                <div className="metaDivType" style={{ borderStyle: "ridge" }}>
+                    <b> نتــــائـــج البـــحـــث  </b>
+                </div>
+                <div id="div_ResultsDetails" className="divTableStyle" style={{ borderStyle: "ridge" }}>
+                    لا توجد نتائج بحث
+                        </div>
             </div>
 
         </div>

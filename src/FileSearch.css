@@ -70,3 +70,8 @@ li.search-header button:active {
 #SearchDetails{
     height: 415px;
 }
+
+.divTableSearchStyle {
+    padding: -1px 20px 15px;
+    border-bottom: solid 1px #ccc;
+}
