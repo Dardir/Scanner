@@ -4,6 +4,7 @@ import './DynamsoftSDK.css'
 import { counsulates, delegationTypes } from './ReferenceData';
 import DatePicker from "react-datepicker";
 import useValidateAnyValueInFields from './useValidateAnyValueInFields';
+import { Link } from 'react-router-dom';
 
 
 const FileSearch = ({ initialMetaData, displayFile }) => {
@@ -51,6 +52,11 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
             <ul className="search-header">
                 <li className="search-header">
                     <button onClick={searchForFile} style={{ width: "133px" }} disabled={isDisabled}><b>ابحث</b></button>
+                </li>
+                <li className="search-header" style={{paddingLeft:"5px", float:"left" }}>
+                    <Link to="/scan" style={{ width: "133px" }}>
+                        <button style={{ width: "133px"}} ><b>المسح الضوئي</b></button>
+                    </Link>
                 </li>
             </ul>
             <div id="SearchDetails" className="divTableStyle" style={{ borderStyle: "ridge" }}>

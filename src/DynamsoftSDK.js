@@ -5,6 +5,7 @@ import $ from 'jquery';
 import Metadata from './Metadata'
 import uuid from 'react-uuid'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 class UI extends React.Component {
     render() {
@@ -193,6 +194,9 @@ class UI extends React.Component {
                         </ul>
                     </div>
                     <div id="divNoteMessage"> </div>
+                    <Link to="/search" style={{ width: "133px" }}>
+                        <button id="btnSearch" style={{ width: "133px", position:"relative", marginTop:"15px" }} ><b>البحث عن ملفات </b></button>
+                    </Link>
                 </div>
                 <Metadata
                     saveMetadataObj={this.props.saveMetadataObj}
@@ -847,7 +851,7 @@ export default class DWT extends React.Component {
                 }
             }, (error) => {
                 this.appendMessage('<br/><p style="color:red;">تعذر ارسال الملف</p>');
-                this.appendMessage('<br/><p style="color:red;">'+error+'</p>');
+                this.appendMessage('<br/><p style="color:red;">' + error + '</p>');
             })
     }
 

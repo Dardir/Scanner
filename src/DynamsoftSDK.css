@@ -567,7 +567,7 @@ select#Resolution {
     text-align: center;
 }
 
-#btnSaveForm,#btnUpload,#btnSave,#btnScan,.btnOrg{
+#btnSaveForm,#btnUpload,#btnSave,#btnScan,.btnOrg,#btnSearch{
     color: "rgb(255, 255, 255)";
     line-height: 28px;
     font-size: 14px;
@@ -578,14 +578,13 @@ select#Resolution {
     box-shadow: 0 5px #999;
 }
 
-#btnSaveForm:hover:enabled,#btnUpload:hover:enabled,#btnSave:hover:enabled,#btnScan:hover:enabled,.btnOrg:hover:enabled {background-color: #075991;cursor: pointer;}
+#btnSaveForm:hover:enabled,#btnUpload:hover:enabled,#btnSave:hover:enabled,#btnScan:hover:enabled,.btnOrg:hover:enabled,#btnSearch:hover:enabled {background-color: #075991;cursor: pointer;}
 
-#btnSaveForm:active,#btnUpload:active,#btnSave:active,#btnScan:active,.btnOrg:active {
+#btnSaveForm:active,#btnUpload:active,#btnSave:active,#btnScan:active,.btnOrg:active,#btnSearch:active {
     background-color: #075991;
     box-shadow: 0 5px #666;
     transform: translateY(2px);
   }
-
 
 
 #tblLoadImage {
