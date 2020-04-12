@@ -204,10 +204,10 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                                             <p style={{ paddingLeft: "74px" }}>تاريخ المعاملة</p>
                                         </label>
                                         <DatePicker
-                                            selected={metadataform.delegationDate}
-                                            onChange={handleDelegationDateChange}
+                                            selected={metadataform.transactionDate}
+                                            onChange={handleTransactionDateChange}
                                             id="date_transactionDate"
-                                            onSelect={handleDelegationDateChange}
+                                            onSelect={handleTransactionDateChange}
                                         />
 
                                     </li>
