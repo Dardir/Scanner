@@ -5,7 +5,7 @@ export const counsulates = [
     },
     {
         key: 'Riyadh',
-        value:' الرياض'
+        value:'الرياض'
     },
     {
         key: 'Taif',
