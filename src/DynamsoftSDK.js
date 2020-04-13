@@ -834,7 +834,7 @@ export default class DWT extends React.Component {
         const element = Array.from(NM_imgType_save).find(element => element.checked);
         const extension = element.value;
         const fileName = document.getElementById("txt_fileName").value + "_" + uuid() + "." + extension;
-        const filePath = process.env.REACT_APP_PRODUCT_UPLOAD_FOLDER + '/' + fileName;
+        const filePath = process.env.REACT_APP_PRODUCT_UPLOAD_FOLDER + fileName;
         this.btnSave_onclick(filePath);
 
         //sending saved image to the backend web server which should read the file and send it to Alfresco
