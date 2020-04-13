@@ -16,12 +16,12 @@ const Home = () => {
     return (
         <div style={{ position: "relative", opacity: "0.75" }}>
             <section style={sectionStyle}>
-                <Link to="/scan" style={{ color: "red", fontSize:"45px" ,  position: "fixed", top: "55%", left: "70%", textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"}}>
+                <Link to="/scan" style={{ color: "red", fontSize:"45px" ,  position: "fixed", top: "55%", left: "70%", textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black",textDecoration: "underline"}}>
                     <b>
                         مسح ضوئي
                     </b>
                 </Link>
-                <Link to="/search" style={{ color: "red", fontSize:"45px" ,  position: "fixed", top: "55%", left: "10%", textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"}}>
+                <Link to="/search" style={{ color: "red", fontSize:"45px" ,  position: "fixed", top: "55%", left: "10%", textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black",textDecoration: "underline"}}>
                     <b>
                         البحث عن ملفات
                     </b>
