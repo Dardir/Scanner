@@ -67,7 +67,7 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                     {
                       counsulates.map((item) => {
                         return (
-                          <option key={item.key} value={item.key}>{item.value}</option>
+                          <option key={item.key} value={item.value}>{item.value}</option>
                         );
                       })
                     }
@@ -139,7 +139,7 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                     {
                       delegationTypes.map((item) => {
                         return (
-                          <option key={item.key} value={item.key}>{item.value}</option>
+                          <option key={item.key} value={item.value}>{item.value}</option>
                         );
                       })
                     }
