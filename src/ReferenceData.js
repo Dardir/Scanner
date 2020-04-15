@@ -8,8 +8,16 @@ export const counsulates = [
         value:'الرياض'
     },
     {
-        key: 'Taif',
-        value:'الطائف'
+        key: 'Damam',
+        value:'الدمام'
+    },
+    {
+        key: 'East',
+        value:'المنطقة الشرقية'
+    },
+    {
+        key: 'Arar',
+        value:'عرعر'
     }
 
 ];
@@ -20,8 +28,20 @@ export const delegationTypes = [
         value: 'توكيل قضايا'
     },
     {
-        key: 'general',
-        value:'توكيل عام'
+        key: 'bank',
+        value:'توكيل بنكي'
+    },
+    {
+        key: 'marriage',
+        value:'توكيل عقد قران'
+    },
+    {
+        key: 'government',
+        value:'توكيل للتعامل و استلام وثائق حكومية'
+    },
+    {
+        key: 'sell',
+        value:'توكيل بيع و شراء'
     }
 
 ];
