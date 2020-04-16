@@ -11,8 +11,24 @@ const useFilterSearchResult = (searchResultArr,searchFilterObj,keyMap) => {
         return {...item, properties: replaceObjKeys(item.properties)};
     });
 
+    const filteredOut = searchResultArrWithNewKeys.filter((element)=>{
+        let matching = false;
+        Object.keys(searchFilterObj).forEach((key) =>{
+            if(searchFilterObj[key] && searchFilterObj[key]!==''){
+                if(element.properties[key] === searchFilterObj[key]){
+                    matching = true;
+                }else{
+                    matching = false;
+                }
+            }
+        })
+        return matching;
+    })
+    if(filteredOut.length === 0){
+        return [null];
+    }
     
-    return [null];
+    return [filteredOut];
 }
 
 export default useFilterSearchResult;
