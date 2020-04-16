@@ -4,8 +4,9 @@ import './DynamsoftSDK.css'
 import { counsulates, delegationTypes } from './ReferenceData';
 import DatePicker from "react-datepicker";
 import useValidateAnyValueInFields from './useValidateAnyValueInFields';
+import useFilterSearchResult from './useFilterSearchResult';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
 
 const FileSearch = ({ initialMetaData, displayFile }) => {
     const [metadataform, setState] = useState({
@@ -25,6 +26,9 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
         keySearch: initialMetaData.keySearch
     });
     const [isDisabled] = useValidateAnyValueInFields(metadataform);
+    const [searchResultArr, setSearchResultArr] = useState([]);
+    const [filteredSearchResultArr] = useFilterSearchResult(searchResultArr,metadataform);
+
     const updateField = e => {
         setState({
             ...metadataform,
@@ -44,7 +48,22 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
             transactionDate: date
         });
     };
-    const searchForFile = () => {
+    const searchForFile = async () => {
+        axios.defaults.headers.common['Authorization'] = process.env.REACT_APP_AUTH_KEY;
+        const url = `http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}${process.env.REACT_APP_SEARCH_PATH}/${process.env.REACT_APP_FOLDER_ID}/children?include=properties&where=(nodeType%3D'${process.env.REACT_APP_NODE_TYPE}')`;
+        console.log(`calling URL : ${url}`);
+        try {
+            const response = await axios.get(url);
+            console.log(response);
+            if(!response && !response.data){
+                setSearchResultArr(response.data.entries);
+            }
+
+          } catch (error) {
+            console.error(error);
+          }
+
+        
 
     }
     return (
@@ -53,9 +72,9 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                 <li className="search-header">
                     <button onClick={searchForFile} style={{ width: "133px" }} disabled={isDisabled}><b>ابحث</b></button>
                 </li>
-                <li className="search-header" style={{paddingLeft:"5px", float:"left" }}>
+                <li className="search-header" style={{ paddingLeft: "5px", float: "left" }}>
                     <Link to="/scan" style={{ width: "133px" }}>
-                        <button style={{ width: "133px"}} ><b>المسح الضوئي</b></button>
+                        <button style={{ width: "133px" }} ><b>المسح الضوئي</b></button>
                     </Link>
                 </li>
             </ul>
@@ -175,7 +194,7 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                                         <label htmlFor="txt_barcode">
                                             <p>باركود</p>
                                         </label>
-                                        <input type="text" size="20" id="txt_barcode" style={{ paddingLeft: "5px;" }} name="barcode" value={metadataform.barcode} onChange={updateField} />
+                                        <input type="text" size="20" id="txt_barcode" style={{ paddingLeft: "5px" }} name="barcode" value={metadataform.barcode} onChange={updateField} />
                                     </li>
                                 </div>
                             </div>
@@ -246,8 +265,9 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                     <b> نتــــائـــج البـــحـــث  </b>
                 </div>
                 <div id="div_ResultsDetails" className="divTableStyle" style={{ borderStyle: "ridge" }}>
-                    لا توجد نتائج بحث
-                        </div>
+                    {(!filteredSearchResultArr)? 'لا توجد نتائج بحث' : <div>Rendering table ...</div>
+                    }
+                </div>
             </div>
 
         </div>

@@ -45,3 +45,65 @@ export const delegationTypes = [
     }
 
 ];
+
+
+export const keyMap = [
+    {
+        key: 'dc:Barcode',
+        value: 'barcode'
+    },
+    {
+        key: 'dc:EDate',
+        value:'delegationDate'
+    },
+    {
+        key: 'dc:Embassy',
+        value:'counsulate'
+    },
+    {
+        key: 'dc:EmployeeName',
+        value:'employeeName'
+    },
+    {
+        key: 'dc:EmployeeNo',
+        value:'employeeNumber'
+    },
+    {
+        key: 'dc:POADate',
+        value:'transactionDate'
+    },
+    {
+        key: 'dc:POAFrom',
+        value:'delegator'
+    },
+    {
+        key: 'dc:POAFromPass',
+        value:'delegatorPassport'
+    },
+    {
+        key: 'dc:POAKeyword',
+        value:'keySearch'
+    },
+    {
+        key: 'dc:POANumber',
+        value:'delegationNumber'
+    },
+    {
+        key: 'dc:POASubject',
+        value:'delegationSubject'
+    },
+    {
+        key: 'dc:POATo',
+        value:'delegatedTo'
+    },
+    {
+        key: 'dc:POAToPass',
+        value:'delegatedToPassport'
+    },
+    {
+        key: 'dc:POAType',
+        value:'delegationType'
+    }
+
+
+];
