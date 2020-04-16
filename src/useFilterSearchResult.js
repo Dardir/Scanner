@@ -1,4 +1,16 @@
-const useFilterSearchResult = (searchResultArr,searchFilterObj) => {
+const useFilterSearchResult = (searchResultArr,searchFilterObj,keyMap) => {
+
+    const replaceObjKeys = (obj,keyMap) =>{
+        let replacedItems = Object.keys(obj).map((key) => {
+            const newKey = keyMap[key] || key;
+            return { [newKey] : obj[key] };
+          });
+          return replacedItems.reduce((a, b) => Object.assign({}, a, b));
+    }
+    const searchResultArrWithNewKeys = searchResultArr.map((item) => {
+        return {...item, properties: replaceObjKeys(item.properties)};
+    });
+
     
     return [null];
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './FileSearch.css';
 import './DynamsoftSDK.css'
-import { counsulates, delegationTypes } from './ReferenceData';
+import { counsulates, delegationTypes,keyMap } from './ReferenceData';
 import DatePicker from "react-datepicker";
 import useValidateAnyValueInFields from './useValidateAnyValueInFields';
 import useFilterSearchResult from './useFilterSearchResult';
@@ -27,7 +27,7 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
     });
     const [isDisabled] = useValidateAnyValueInFields(metadataform);
     const [searchResultArr, setSearchResultArr] = useState([]);
-    const [filteredSearchResultArr] = useFilterSearchResult(searchResultArr,metadataform);
+    const [filteredSearchResultArr] = useFilterSearchResult(searchResultArr,metadataform,keyMap);
     const [errorMessage, setErrorMessage] = useState(null);
 
     const updateField = e => {
