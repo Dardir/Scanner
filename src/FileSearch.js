@@ -28,6 +28,7 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
     const [isDisabled] = useValidateAnyValueInFields(metadataform);
     const [searchResultArr, setSearchResultArr] = useState([]);
     const [filteredSearchResultArr] = useFilterSearchResult(searchResultArr,metadataform);
+    const [errorMessage, setErrorMessage] = useState(null);
 
     const updateField = e => {
         setState({
@@ -51,16 +52,17 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
     const searchForFile = async () => {
         axios.defaults.headers.common['Authorization'] = process.env.REACT_APP_AUTH_KEY;
         const url = `http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}${process.env.REACT_APP_SEARCH_PATH}/${process.env.REACT_APP_FOLDER_ID}/children?include=properties&where=(nodeType%3D'${process.env.REACT_APP_NODE_TYPE}')`;
-        console.log(`calling URL : ${url}`);
         try {
             const response = await axios.get(url);
             console.log(response);
             if(!response && !response.data){
+                setErrorMessage(null);
                 setSearchResultArr(response.data.entries);
             }
 
           } catch (error) {
             console.error(error);
+            setErrorMessage(''+error);
           }
 
         
@@ -265,7 +267,9 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                     <b> نتــــائـــج البـــحـــث  </b>
                 </div>
                 <div id="div_ResultsDetails" className="divTableStyle" style={{ borderStyle: "ridge" }}>
-                    {(!filteredSearchResultArr)? 'لا توجد نتائج بحث' : <div>Rendering table ...</div>
+                    {
+                        (errorMessage)? <div style={{color:"red"}}>تعذر الاتصال بالنظام<br/>{errorMessage} </div>: 
+                        ((!filteredSearchResultArr)? 'لا توجد نتائج بحث' : <div>Rendering table ...</div>)
                     }
                 </div>
             </div>
