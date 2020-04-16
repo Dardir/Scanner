@@ -8,7 +8,7 @@ const useFilterSearchResult = (searchResultArr,searchFilterObj,keyMap) => {
           return replacedItems.reduce((a, b) => Object.assign({}, a, b));
     }
     const searchResultArrWithNewKeys = searchResultArr.map((item) => {
-        return {...item, properties: replaceObjKeys(item.properties)};
+        return {...item, properties: replaceObjKeys(item.properties,keyMap)};
     });
 
     const filteredOut = searchResultArrWithNewKeys.filter((element)=>{
