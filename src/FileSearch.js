@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './FileSearch.css';
 import './DynamsoftSDK.css'
-import { counsulates, delegationTypes,keyMap,mockingSearchResults } from './ReferenceData';
+import { counsulates, delegationTypes,keyMap} from './ReferenceData';
+//import { mockingSearchResults } from './ReferenceData';
 import DatePicker from "react-datepicker";
 import useValidateAnyValueInFields from './useValidateAnyValueInFields';
 import useFilterSearchResult from './useFilterSearchResult';
@@ -52,7 +53,7 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
     const searchForFile = async () => {
         axios.defaults.headers.common['Authorization'] = process.env.REACT_APP_AUTH_KEY;
         const url = `http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}${process.env.REACT_APP_SEARCH_PATH}/${process.env.REACT_APP_FOLDER_ID}/children?include=properties&where=(nodeType%3D'${process.env.REACT_APP_NODE_TYPE}')`;
-        /*try {
+        try {
             const response = await axios.get(url);
             console.log(response);
             if(!response && !response.data){
@@ -63,8 +64,8 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
           } catch (error) {
             console.error(error);
             setErrorMessage(''+error);
-          }*/
-          setSearchResultArr(mockingSearchResults);
+          }
+          //setSearchResultArr(mockingSearchResults);
 
         
 
