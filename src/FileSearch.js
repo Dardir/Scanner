@@ -300,7 +300,7 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                                                         return (
                                                             <div class="rowTable">
                                                                 <div class="cell" data-title="Display">
-                                                                    <a>عرض الملف</a>
+                                                                    <button  ><b>عرض الملف</b></button>
                                                                 </div>
                                                                 
                                                                 <div class="cell" data-title="Delegated To">

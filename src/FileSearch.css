@@ -25,6 +25,7 @@ li.search-header button {
     box-shadow: 0 5px #999;
 }
 
+
 li.search-header button:hover:enabled {
     background-color: #075991;cursor: pointer;
 }
@@ -247,4 +248,24 @@ li.search-header button:active {
   .table, .rowTable, .cell {
     width: 100% !important;
   }
+}
+.cell button {
+  color: "rgb(255, 255, 255)";
+  line-height: 28px;
+  font-size: 14px;
+  color: #fff;
+  background: #50a8e1;
+  border: none;
+  outline: none;
+  box-shadow: 0 5px #999;
+}
+
+.cell button:active {
+  background-color: #075991;
+  box-shadow: 0 5px #666;
+  transform: translateY(2px);
+}
+
+.cell  button:hover:enabled {
+  background-color: #075991;cursor: pointer;
 }
