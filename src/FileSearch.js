@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './FileSearch.css';
 import './DynamsoftSDK.css'
-import { counsulates, delegationTypes,keyMap} from './ReferenceData';
+import { counsulates, delegationTypes, keyMap } from './ReferenceData';
 //import { mockingSearchResults } from './ReferenceData';
 import DatePicker from "react-datepicker";
 import useValidateAnyValueInFields from './useValidateAnyValueInFields';
@@ -28,7 +28,7 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
     });
     const [isDisabled] = useValidateAnyValueInFields(metadataform);
     const [searchResultArr, setSearchResultArr] = useState([]);
-    const [filteredSearchResultArr] = useFilterSearchResult(searchResultArr,metadataform,keyMap);
+    const [filteredSearchResultArr] = useFilterSearchResult(searchResultArr, metadataform, keyMap);
     const [errorMessage, setErrorMessage] = useState(null);
 
     const updateField = e => {
@@ -56,18 +56,18 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
         try {
             const response = await axios.get(url);
             console.log(response);
-            if(!response && !response.data){
+            if (!response && !response.data) {
                 setErrorMessage(null);
                 setSearchResultArr(response.data.entries);
             }
 
-          } catch (error) {
+        } catch (error) {
             console.error(error);
-            setErrorMessage(''+error);
-          }
-          //setSearchResultArr(mockingSearchResults);
+            setErrorMessage('' + error);
+        }
+        //setSearchResultArr(mockingSearchResults);
 
-        
+
 
     }
     return (
@@ -270,8 +270,67 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                 </div>
                 <div id="div_ResultsDetails" className="divTableStyle" style={{ borderStyle: "ridge" }}>
                     {
-                        (errorMessage)? <div style={{color:"red"}}>تعذر الاتصال بالنظام<br/>{errorMessage} </div>: 
-                        ((!filteredSearchResultArr)? 'لا توجد نتائج بحث' : <div>Rendering table ...</div>)
+                        (errorMessage) ? <div style={{ color: "red" }}>تعذر الاتصال بالنظام<br />{errorMessage} </div> :
+                            ((!filteredSearchResultArr) ? 'لا توجد نتائج بحث' :
+                                <div class="limiter">
+                                    <div class="container-table100">
+                                        <div class="wrap-table100">
+                                            <div class="table">
+
+                                                <div class="rowTable header">
+                                                    <div class="cell"/>
+                                                    <div class="cell">
+                                                        الموكل اليه
+							                        </div>
+                                                    <div class="cell">
+                                                        الموكل
+							                        </div>
+                                                    <div class="cell">
+                                                        نوع التوكيل
+							                        </div>
+                                                    <div class="cell">
+                                                        القنصلية
+							                        </div><div class="cell">
+                                                        اسم الملف
+							                        </div>
+                                                 
+                                                </div>
+                                                {
+                                                    filteredSearchResultArr.map((result,id) => {
+                                                        return (
+                                                            <div class="rowTable">
+                                                                <div class="cell" data-title="Display">
+                                                                    <a>عرض الملف</a>
+                                                                </div>
+                                                                
+                                                                <div class="cell" data-title="Delegated To">
+                                                                    {result.properties.delegatedTo}
+                                                                </div>
+                                                                <div class="cell" data-title="Delegator">
+                                                                    {result.properties.delegator}
+                                                                </div>
+                                                                <div class="cell" data-title="Delegation Type">
+                                                                    {result.properties.delegationType}
+                                                                </div>
+                                                                <div class="cell" data-title="Consulate">
+                                                                    {result.properties.counsulate}
+                                                                </div>
+                                                                <div class="cell" data-title="File Name">
+                                                                    {result.name}
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            
+                                                        )
+
+                                                    })
+                                                }
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
                     }
                 </div>
             </div>

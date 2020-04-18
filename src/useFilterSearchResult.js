@@ -1,5 +1,4 @@
 const useFilterSearchResult = (searchResultArr,searchFilterObj,keyMap) => {
-    debugger;
     const getMappedKey= (oldKey) =>{
         const mapElement = keyMap.find(element => element.key === oldKey);
         if(!mapElement) return oldKey;
