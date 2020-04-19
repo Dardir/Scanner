@@ -28,7 +28,7 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
                     <div className="columnDisplay" style={{ Width: '583px', Height: '688px', borderStyle: 'groove', display: 'block' }}>
                         Displaying file of {metadataObj.id}
                     </div>
-                    <div className="column">
+                    <div className="column" style={{float:'right'}}>
                         <div className="row">
                             <div className="internal-column">
                                 <li style={{ textAlign: "right", listStyleType: "none" }}>
