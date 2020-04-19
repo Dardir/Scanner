@@ -66,10 +66,11 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
             setErrorMessage('' + error);
         }
         //setSearchResultArr(mockingSearchResults);
-
-
-
     }
+    function onClickDisplay (id){
+        displayFile(filteredSearchResultArr[id]);
+    }
+
     return (
         <div id="DWTcontainer" className="container">
             <ul className="search-header">
@@ -272,50 +273,50 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                     {
                         (errorMessage) ? <div style={{ color: "red" }}>تعذر الاتصال بالنظام<br />{errorMessage} </div> :
                             ((!filteredSearchResultArr) ? 'لا توجد نتائج بحث' :
-                                <div class="limiter">
-                                    <div class="container-table100">
-                                        <div class="wrap-table100">
-                                            <div class="table">
+                                <div className="limiter">
+                                    <div className="container-table100">
+                                        <div className="wrap-table100">
+                                            <div className="table">
 
-                                                <div class="rowTable header">
-                                                    <div class="cell"/>
-                                                    <div class="cell">
+                                                <div className="rowTable header">
+                                                    <div className="cell"/>
+                                                    <div className="cell">
                                                         الموكل اليه
 							                        </div>
-                                                    <div class="cell">
+                                                    <div className="cell">
                                                         الموكل
 							                        </div>
-                                                    <div class="cell">
+                                                    <div className="cell">
                                                         نوع التوكيل
 							                        </div>
-                                                    <div class="cell">
+                                                    <div className="cell">
                                                         القنصلية
-							                        </div><div class="cell">
+							                        </div><div className="cell">
                                                         اسم الملف
 							                        </div>
                                                  
                                                 </div>
                                                 {
-                                                    filteredSearchResultArr.map((result,id) => {
+                                                    filteredSearchResultArr.map((result,key) => {
                                                         return (
-                                                            <div class="rowTable">
-                                                                <div class="cell" data-title="Display">
-                                                                    <button  ><b>عرض الملف</b></button>
+                                                            <div key={key} className="rowTable">
+                                                                <div className="cell" data-title="Display">
+                                                                    <button onClick={()=> {onClickDisplay(key)}} ><b>عرض الملف</b></button>
                                                                 </div>
                                                                 
-                                                                <div class="cell" data-title="Delegated To">
+                                                                <div className="cell" data-title="Delegated To">
                                                                     {result.properties.delegatedTo}
                                                                 </div>
-                                                                <div class="cell" data-title="Delegator">
+                                                                <div className="cell" data-title="Delegator">
                                                                     {result.properties.delegator}
                                                                 </div>
-                                                                <div class="cell" data-title="Delegation Type">
+                                                                <div className="cell" data-title="Delegation Type">
                                                                     {result.properties.delegationType}
                                                                 </div>
-                                                                <div class="cell" data-title="Consulate">
+                                                                <div className="cell" data-title="Consulate">
                                                                     {result.properties.counsulate}
                                                                 </div>
-                                                                <div class="cell" data-title="File Name">
+                                                                <div className="cell" data-title="File Name">
                                                                     {result.name}
                                                                 </div>
                                                                 

@@ -20,11 +20,9 @@ const FileSearchApp = ()=>{
         delegationSubject: '',
         keySearch: ''
       });
-    const [file, setFile] = useState (null);
 
-    const displayFile = (metadataObj,file)=>{
+    const displayFile = (metadataObj)=>{
         setmetadataObj(metadataObj);
-        setFile(file);
         setMode('display');
     }
 
@@ -35,7 +33,7 @@ const FileSearchApp = ()=>{
     return(
         <div>
         {
-            (mode === 'search')? <FileSearch initialMetaData = {metadataObj} displayFile = {displayFile}/> : <FileDisplay metadataObj = {metadataObj} file={file} navigateBack={navigateBack}/>
+            (mode === 'search')? <FileSearch initialMetaData = {metadataObj} displayFile = {displayFile}/> : <FileDisplay metadataObj = {metadataObj}  navigateBack={navigateBack}/>
         }
         </div>
     )    

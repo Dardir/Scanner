@@ -1,8 +1,8 @@
 import React from 'react';
 
-const FileDisplay = (props) =>{
+const FileDisplay = ({metadataObj}) =>{
     return (
-        <div>File Display</div>
+    <div>Displaying file with ID = {metadataObj.id}</div>
     )
 }
 
