@@ -37,18 +37,3 @@ const useFilterSearchResult = (searchResultArr,searchFilterObj,keyMap) => {
 
 export default useFilterSearchResult;
 
-
-/*
-        {
-  "list": {
-    "pagination": {
-      "count": 4,
-      "hasMoreItems": false,
-      "totalItems": 4,
-      "skipCount": 0,
-      "maxItems": 100
-    },
-    "entries": 
-  }
-}
-        */
