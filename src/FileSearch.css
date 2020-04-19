@@ -68,6 +68,14 @@ li.search-header button:active {
     width: 95%
 }
 
+.internal-column input[type='text'] {
+  margin-top: 3px;
+  margin-bottom: 6px;
+  height: 26px;
+  border: solid 1px #ccc;
+  width: 95%
+}
+
 #SearchDetails{
     height: 415px;
 }
