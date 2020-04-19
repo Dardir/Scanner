@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import FileSearch from './FileSearch';
 import FileDisplay from './FileDisplay';
 
@@ -31,11 +31,11 @@ const FileSearchApp = ()=>{
     }
 
     return(
-        <div>
+        <Fragment>
         {
             (mode === 'search')? <FileSearch initialMetaData = {metadataObj} displayFile = {displayFile}/> : <FileDisplay metadataObj = {metadataObj}  navigateBack={navigateBack}/>
         }
-        </div>
+        </Fragment>
     )    
 }
 

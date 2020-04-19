@@ -76,7 +76,18 @@ li.search-header button:active {
     padding: -1px 20px 15px;
     border-bottom: solid 1px #ccc;
 }
+.divDisplayFile {
+  padding: 12px 20px 15px;
+  border-bottom: solid 1px #ccc;
+  height: 600px;
+}
 
+.columnDisplay {
+  float: left;
+  width: 45%;
+  padding: 10px;
+  height: 575px; 
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ Table ]*/
