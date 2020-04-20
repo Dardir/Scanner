@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
+import axios from 'axios';
 import './FileSearch.css';
 import './DynamsoftSDK.css';
+//import { mockingFileURL } from './ReferenceData';
 
 const FileDisplay = ({ metadataObj, navigateBack }) => {
     const formatDate = (date) => {
@@ -16,6 +18,34 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
 
         return [year, month, day].join('-');
     }
+    
+    const [errorMessage, setErrorMessage] = useState(null);
+    const [fileURL, setFileURL] = useState(null);
+
+    useEffect(() => {
+        async function fetchFileURL() {
+            axios.defaults.headers.common['Authorization'] = process.env.REACT_APP_AUTH_KEY;
+            const url = `http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}${process.env.REACT_APP_SEARCH_PATH}/${metadataObj.id}/content?attachment=false`;
+            try {
+                const response = await axios.get(url);
+                console.log(response);
+                if (!response && !response.data) {
+                    setErrorMessage(null);
+                    return response.data;
+                }
+
+            } catch (error) {
+                console.error(error);
+                setErrorMessage('' + error);
+                return null;
+            }
+        }
+        setFileURL(fetchFileURL());
+        //setFileURL(mockingFileURL);
+
+    }, [metadataObj.id]);
+
+
     return (
         <div id="DWTcontainer" className="container">
             <ul className="search-header">
@@ -26,7 +56,10 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
             <div className="divDisplayFile" style={{ borderStyle: "ridge", Height: '688px' }}>
                 <div className="row">
                     <div className="columnDisplay" style={{ Width: '583px', Height: '688px', borderStyle: 'groove', display: 'block' }}>
-                        Displaying file of {metadataObj.id}
+                    {
+                        (errorMessage)? <div style={{ color: "red" }}>تعذر الاتصال بالنظام<br />{errorMessage} </div> : <iframe title='Display File' src={fileURL} width="100%" height="100%"></iframe>
+                    }
+                        
                     </div>
                     <div className="column" style={{ float: 'right' }}>
                         <div className="row">

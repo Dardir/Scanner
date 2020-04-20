@@ -299,3 +299,5 @@ export const mockingSearchResults =
             }
         }
     ];
+
+    export const mockingFileURL = 'http://www.orimi.com/pdf-test.pdf'
