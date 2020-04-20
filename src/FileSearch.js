@@ -9,28 +9,40 @@ import useFilterSearchResult from './useFilterSearchResult';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const FileSearch = ({ initialMetaData, displayFile }) => {
+const FileSearch = ({ displayFile, searchResults }) => {
     const [metadataform, setState] = useState({
-        counsulate: initialMetaData.counsulate,
-        barcode: initialMetaData.barcode,
-        delegationNumber: initialMetaData.delegationNumber,
-        delegationDate: initialMetaData.delegationDate,
-        transactionDate: initialMetaData.transactionDate,
-        employeeName: initialMetaData.employeeName,
-        employeeNumber: initialMetaData.employeeNumber,
-        delegationType: initialMetaData.delegationType,
-        delegator: initialMetaData.delegator,
-        delegatorPassport: initialMetaData.delegatorPassport,
-        delegatedTo: initialMetaData.delegatedTo,
-        delegatedToPassport: initialMetaData.delegatedToPassport,
-        delegationSubject: initialMetaData.delegationSubject,
-        keySearch: initialMetaData.keySearch
+        counsulate: '',
+        barcode: '',
+        delegationNumber: '',
+        delegationDate: '',
+        transactionDate: '',
+        employeeName: '',
+        employeeNumber: '',
+        delegationType: '',
+        delegator: '',
+        delegatorPassport: '',
+        delegatedTo: '',
+        delegatedToPassport: '',
+        delegationSubject: '',
+        keySearch: ''
     });
     const [isDisabled] = useValidateAnyValueInFields(metadataform);
     const [searchResultArr, setSearchResultArr] = useState([]);
+    let filteredDisplayedArr = null;
     const [filteredSearchResultArr] = useFilterSearchResult(searchResultArr, metadataform, keyMap);
+    const isEmptyMetadata = (metadata) =>{
+        return Object.keys(metadata).every((key)=>{
+            return metadata[key] === ''
+        })
+    }
+    
+    if(isEmptyMetadata(metadataform)){
+        filteredDisplayedArr = searchResults;
+    }else{
+        filteredDisplayedArr = filteredSearchResultArr;
+    }
     const [errorMessage, setErrorMessage] = useState(null);
-
+    
     const updateField = e => {
         setState({
             ...metadataform,
@@ -68,7 +80,7 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
         //setSearchResultArr(mockingSearchResults);
     }
     function onClickDisplay (id){
-        displayFile(filteredSearchResultArr[id]);
+        displayFile(filteredDisplayedArr[id],filteredDisplayedArr);
     }
 
     return (
@@ -272,7 +284,7 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                 <div id="div_ResultsDetails" className="divTableStyle" style={{ borderStyle: "ridge" }}>
                     {
                         (errorMessage) ? <div style={{ color: "red" }}>تعذر الاتصال بالنظام<br />{errorMessage} </div> :
-                            ((!filteredSearchResultArr) ? 'لا توجد نتائج بحث' :
+                            ((!filteredDisplayedArr) ? 'لا توجد نتائج بحث' :
                                 <div className="limiter">
                                     <div className="container-table100">
                                         <div className="wrap-table100">
@@ -297,7 +309,7 @@ const FileSearch = ({ initialMetaData, displayFile }) => {
                                                  
                                                 </div>
                                                 {
-                                                    filteredSearchResultArr.map((result,key) => {
+                                                    filteredDisplayedArr.map((result,key) => {
                                                         return (
                                                             <div key={key} className="rowTable">
                                                                 <div className="cell" data-title="Display">

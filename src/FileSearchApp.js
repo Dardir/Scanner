@@ -4,25 +4,12 @@ import FileDisplay from './FileDisplay';
 
 const FileSearchApp = ()=>{
     const [mode, setMode] = useState ('search');
-    const [metadataObj, setmetadataObj] = useState({
-        counsulate: '',
-        barcode: '',
-        delegationNumber: '',
-        delegationDate: '',
-        transactionDate: '',
-        employeeName: '',
-        employeeNumber: '',
-        delegationType: '',
-        delegator: '',
-        delegatorPassport: '',
-        delegatedTo: '',
-        delegatedToPassport: '',
-        delegationSubject: '',
-        keySearch: ''
-      });
+    const [searchResults, setSearchResults] = useState (null);
+    const [metadataObj, setmetadataObj] = useState({});
 
-    const displayFile = (metadataObj)=>{
+    const displayFile = (metadataObj,results)=>{
         setmetadataObj(metadataObj);
+        setSearchResults(results);
         setMode('display');
     }
 
@@ -33,7 +20,7 @@ const FileSearchApp = ()=>{
     return(
         <Fragment>
         {
-            (mode === 'search')? <FileSearch initialMetaData = {metadataObj} displayFile = {displayFile}/> : <FileDisplay metadataObj = {metadataObj}  navigateBack={navigateBack}/>
+            (mode === 'search')? <FileSearch displayFile = {displayFile} searchResults={searchResults}/> : <FileDisplay metadataObj = {metadataObj}  navigateBack={navigateBack}/>
         }
         </Fragment>
     )    
