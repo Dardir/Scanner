@@ -63,14 +63,18 @@ const FileSearch = ({ displayFile, searchResults }) => {
         });
     };
     const searchForFile = async () => {
-        axios.defaults.headers.common['Authorization'] = process.env.REACT_APP_AUTH_KEY;
-        const url = `http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}${process.env.REACT_APP_SEARCH_PATH}/${process.env.REACT_APP_FOLDER_ID}/children?include=properties&where=(nodeType%3D'${process.env.REACT_APP_NODE_TYPE}')`;
+        //axios.defaults.headers.common['Authorization'] = process.env.REACT_APP_AUTH_KEY;
+        //const url = `http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}${process.env.REACT_APP_SEARCH_PATH}/${process.env.REACT_APP_FOLDER_ID}/children?include=properties&where=(nodeType%3D'${process.env.REACT_APP_NODE_TYPE}')`;
+        const url = process.env.REACT_APP_SEARCH_URL + `/${process.env.REACT_APP_FOLDER_ID}`;
+        
         try {
             const response = await axios.get(url);
             console.log(response);
-            if (!response && !response.data) {
+            if (response && response.data && response.data.entries) {
                 setErrorMessage(null);
                 setSearchResultArr(response.data.entries);
+            }else if (response && response.data){
+                setErrorMessage('' + response.data);
             }
 
         } catch (error) {
