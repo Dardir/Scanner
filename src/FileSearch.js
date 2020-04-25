@@ -70,9 +70,9 @@ const FileSearch = ({ displayFile, searchResults }) => {
         try {
             const response = await axios.get(url);
             console.log(response);
-            if (response && response.data && response.data.entries) {
+            if (response && response.entries) {
                 setErrorMessage(null);
-                setSearchResultArr(response.data.entries);
+                setSearchResultArr(response.entries);
             }else if (response && response.data){
                 setErrorMessage('' + response.data);
             }
