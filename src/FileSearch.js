@@ -70,11 +70,11 @@ const FileSearch = ({ displayFile, searchResults }) => {
         try {
             const response = await axios.get(url);
             console.log(response);
-            if (response && response.entries) {
-                console.log("response.entries = ");
-                console.dir(response.entries);
+            if (response && response.data && response.data.entries) {
+                console.log("response.data.entries = ");
+                console.dir(response.data.entries);
                 setErrorMessage(null);
-                setSearchResultArr(response.entries);
+                setSearchResultArr(response.data.entries);
             }else if (response && response.data){
                 setErrorMessage('' + response.data);
             }
