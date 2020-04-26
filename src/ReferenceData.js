@@ -108,196 +108,115 @@ export const keyMap = [
 ];
 
 export const mockingSearchResults =
-    [
-        {
-            "entry": {
-                "createdAt": "2020-04-12T12:03:34.428+0000",
-                "isFolder": false,
-                "isFile": true,
-                "createdByUser": {
-                    "id": "admin",
-                    "displayName": "Administrator"
+{
+    "data": {
+        "list": {
+            "pagination": {
+                "count": 2,
+                "hasMoreItems": false,
+                "totalItems": 2,
+                "skipCount": 0,
+                "maxItems": 100
+            },
+            "entries": [
+                {
+                    "entry": {
+                        "createdAt": "2020-04-23T15:42:02.868+0000",
+                        "isFolder": false,
+                        "isFile": true,
+                        "createdByUser": {
+                            "id": "admin",
+                            "displayName": "Administrator"
+                        },
+                        "modifiedAt": "2020-04-23T15:42:02.868+0000",
+                        "modifiedByUser": {
+                            "id": "admin",
+                            "displayName": "Administrator"
+                        },
+                        "name": "123.pdf",
+                        "id": "a9b55958-8e30-4724-87dc-d8f87ac9239f",
+                        "nodeType": "dc:PowerOfAttorney",
+                        "properties": {
+                            "dc:POATo": "محمود",
+                            "cm:versionType": "MAJOR",
+                            "cm:versionLabel": "1.0",
+                            "dc:Barcode": "123",
+                            "dc:POAType": "توكيل قضايا",
+                            "dc:EmployeeNo": "110",
+                            "cm:lastThumbnailModification": [
+                                "doclib:1587671681277"
+                            ],
+                            "cm:description": "123,2020-04-25,الرياض,محمد,110,2020-04-25,على,10245,قضية الارض,123,قضايا,محمود,45856,توكيل قضايا",
+                            "dc:POAFrom": "على",
+                            "dc:POAToPass": "45856",
+                            "dc:POADate": "2020-04-25T00:00:00.000+0000",
+                            "cm:author": "Tamer Mahrous",
+                            "dc:POASubject": "قضايا",
+                            "dc:EmployeeName": "محمد",
+                            "dc:POAFromPass": "10245",
+                            "dc:Embassy": "الرياض",
+                            "dc:POANumber": "123",
+                            "dc:EDate": "2020-04-25T00:00:00.000+0000",
+                            "dc:POAKeyword": "قضية الارض"
+                        },
+                        "content": {
+                            "mimeType": "application/pdf",
+                            "mimeTypeName": "Adobe PDF Document",
+                            "sizeInBytes": 69318,
+                            "encoding": "UTF-8"
+                        },
+                        "parentId": "c61a3e51-bf50-4a4e-ac45-a85cdaeec7ff"
+                    }
                 },
-                "modifiedAt": "2020-04-12T12:03:34.428+0000",
-                "modifiedByUser": {
-                    "id": "admin",
-                    "displayName": "Administrator"
-                },
-                "name": "123.pdf",
-                "id": "4e4a4379-2165-4b89-ae41-a054acfd4986",
-                "nodeType": "dc:PowerOfAttorney",
-                "properties": {
-                    "dc:POATo": "هشام",
-                    "cm:versionType": "MAJOR",
-                    "cm:versionLabel": "1.0",
-                    "dc:Barcode": "1123456",
-                    "dc:POAType": "توكيل قضايا",
-                    "dc:EmployeeNo": "100",
-                    "cm:lastThumbnailModification": [
-                        "doclib:1586693031126"
-                    ],
-                    "dc:POAFrom": "محمد",
-                    "dc:POAToPass": "123",
-                    "dc:POADate": "2020-04-13T00:00:00.000+0000",
-                    "cm:author": "Tamer Mahrous",
-                    "dc:POASubject": "توكيل خاص للقضايا",
-                    "dc:POAFromPass": "123456",
-                    "dc:EmployeeName": "أحمد",
-                    "dc:Embassy": "الرياض",
-                    "dc:POANumber": "1111",
-                    "dc:EDate": "2020-04-13T00:00:00.000+0000",
-                    "dc:POAKeyword": "بحث1\nبحث2"
-                },
-                "content": {
-                    "mimeType": "application/pdf",
-                    "mimeTypeName": "Adobe PDF Document",
-                    "sizeInBytes": 29027,
-                    "encoding": "UTF-8"
-                },
-                "parentId": "3a3ff9f6-30db-44b8-9ec1-99ee67f8fbd7"
-            }
-        },
-        {
-            "entry": {
-                "createdAt": "2020-04-12T11:53:27.635+0000",
-                "isFolder": false,
-                "isFile": true,
-                "createdByUser": {
-                    "id": "admin",
-                    "displayName": "Administrator"
-                },
-                "modifiedAt": "2020-04-12T11:53:27.635+0000",
-                "modifiedByUser": {
-                    "id": "admin",
-                    "displayName": "Administrator"
-                },
-                "name": "12345.pdf",
-                "id": "ae05d584-95bc-4d98-880b-d72c9bad8575",
-                "nodeType": "dc:PowerOfAttorney",
-                "properties": {
-                    "dc:POATo": "2020-04-13",
-                    "cm:versionType": "MAJOR",
-                    "cm:versionLabel": "1.0",
-                    "dc:Barcode": "1123456",
-                    "dc:POAType": "توكيل قضايا",
-                    "dc:EmployeeNo": "200",
-                    "cm:lastThumbnailModification": [
-                        "doclib:1586692421698"
-                    ],
-                    "dc:POAFrom": "محمد",
-                    "dc:POAToPass": "123",
-                    "dc:POADate": "2020-04-13T00:00:00.000+0000",
-                    "cm:author": "Tamer Mahrous",
-                    "dc:POASubject": "توكيل خاص للقضايا",
-                    "dc:POAFromPass": "123456",
-                    "dc:EmployeeName": "أحمد",
-                    "dc:Embassy": "الرياض",
-                    "dc:POANumber": "1111",
-                    "dc:EDate": "2020-04-13T00:00:00.000+0000",
-                    "dc:POAKeyword": "بحث1\\nبحث2"
-                },
-                "content": {
-                    "mimeType": "application/pdf",
-                    "mimeTypeName": "Adobe PDF Document",
-                    "sizeInBytes": 29027,
-                    "encoding": "UTF-8"
-                },
-                "parentId": "3a3ff9f6-30db-44b8-9ec1-99ee67f8fbd7"
-            }
-        },
-        {
-            "entry": {
-                "createdAt": "2020-04-12T10:06:47.733+0000",
-                "isFolder": false,
-                "isFile": true,
-                "createdByUser": {
-                    "id": "admin",
-                    "displayName": "Administrator"
-                },
-                "modifiedAt": "2020-04-12T10:06:47.733+0000",
-                "modifiedByUser": {
-                    "id": "admin",
-                    "displayName": "Administrator"
-                },
-                "name": "123456.pdf",
-                "id": "c38d9f40-642e-4037-8370-f30edb3cfe6b",
-                "nodeType": "dc:PowerOfAttorney",
-                "properties": {
-                    "cm:versionType": "MAJOR",
-                    "cm:versionLabel": "1.0",
-                    "dc:Barcode": "1123456",
-                    "dc:POAType": "توكيل قضايا",
-                    "dc:EmployeeNo": "100",
-                    "cm:lastThumbnailModification": [
-                        "doclib:1586687907382"
-                    ],
-                    "dc:POAFrom": "محمد",
-                    "dc:POAToPass": "123",
-                    "cm:author": "Tamer Mahrous",
-                    "dc:POASubject": "توكيل خاص للقضايا",
-                    "dc:POAFromPass": "123456",
-                    "dc:EmployeeName": "أحمد",
-                    "dc:Embassy": "الرياض",
-                    "dc:POANumber": "1111",
-                    "dc:POAKeyword": "بحث"
-                },
-                "content": {
-                    "mimeType": "application/pdf",
-                    "mimeTypeName": "Adobe PDF Document",
-                    "sizeInBytes": 29027,
-                    "encoding": "UTF-8"
-                },
-                "parentId": "3a3ff9f6-30db-44b8-9ec1-99ee67f8fbd7"
-            }
-        },
-        {
-            "entry": {
-                "createdAt": "2020-04-12T11:55:19.515+0000",
-                "isFolder": false,
-                "isFile": true,
-                "createdByUser": {
-                    "id": "admin",
-                    "displayName": "Administrator"
-                },
-                "modifiedAt": "2020-04-12T12:03:50.476+0000",
-                "modifiedByUser": {
-                    "id": "admin",
-                    "displayName": "Administrator"
-                },
-                "name": "1234567.pdf",
-                "id": "b105eae1-745c-4441-bc1f-e9ba4fa9e4d3",
-                "nodeType": "dc:PowerOfAttorney",
-                "properties": {
-                    "dc:POATo": "على",
-                    "cm:versionType": "MAJOR",
-                    "cm:versionLabel": "1.0",
-                    "dc:Barcode": "1123456",
-                    "dc:POAType": "توكيل قضايا",
-                    "dc:EmployeeNo": "100",
-                    "cm:lastThumbnailModification": [
-                        "doclib:1586692529856"
-                    ],
-                    "dc:POAFrom": "محمد",
-                    "dc:POAToPass": "123",
-                    "dc:POADate": "2020-04-13T00:00:00.000+0000",
-                    "cm:author": "Tamer Mahrous",
-                    "dc:POASubject": "توكيل خاص للقضايا",
-                    "dc:POAFromPass": "123456",
-                    "dc:EmployeeName": "أحمد",
-                    "dc:Embassy": "الرياض",
-                    "dc:POANumber": "1111",
-                    "dc:EDate": "2020-04-13T00:00:00.000+0000",
-                    "dc:POAKeyword": "بحث1\nبحث2"
-                },
-                "content": {
-                    "mimeType": "application/pdf",
-                    "mimeTypeName": "Adobe PDF Document",
-                    "sizeInBytes": 29027,
-                    "encoding": "UTF-8"
-                },
-                "parentId": "3a3ff9f6-30db-44b8-9ec1-99ee67f8fbd7"
-            }
+                {
+                    "entry": {
+                        "createdAt": "2020-04-23T23:12:01.311+0000",
+                        "isFolder": false,
+                        "isFile": true,
+                        "createdByUser": {
+                            "id": "admin",
+                            "displayName": "Administrator"
+                        },
+                        "modifiedAt": "2020-04-23T23:12:01.311+0000",
+                        "modifiedByUser": {
+                            "id": "admin",
+                            "displayName": "Administrator"
+                        },
+                        "name": "12345.pdf",
+                        "id": "8cf25080-dfd2-4b6d-94a4-adb413bb8db2",
+                        "nodeType": "dc:PowerOfAttorney",
+                        "properties": {
+                            "dc:POATo": "سامح",
+                            "cm:versionType": "MAJOR",
+                            "cm:versionLabel": "1.0",
+                            "dc:Barcode": "12345",
+                            "dc:POAType": "توكيل بنكي",
+                            "dc:EmployeeNo": "110",
+                            "cm:description": "12345,2020-04-25,جدة,محمد,110,2020-04-25,خالد,784511,بنك\nالقاهرة\nتوكيل,12345,بنك القاهرة,سامح,7884,توكيل بنكي",
+                            "dc:POAFrom": "خالد",
+                            "dc:POAToPass": "7884",
+                            "dc:POADate": "2020-04-25T00:00:00.000+0000",
+                            "cm:author": "Tamer Mahrous",
+                            "dc:POASubject": "بنك القاهرة",
+                            "dc:POAFromPass": "784511",
+                            "dc:EmployeeName": "محمد",
+                            "dc:Embassy": "جدة",
+                            "dc:POANumber": "12345",
+                            "dc:EDate": "2020-04-25T00:00:00.000+0000",
+                            "dc:POAKeyword": "بنك\nالقاهرة\nتوكيل"
+                        },
+                        "content": {
+                            "mimeType": "application/pdf",
+                            "mimeTypeName": "Adobe PDF Document",
+                            "sizeInBytes": 69318,
+                            "encoding": "UTF-8"
+                        },
+                        "parentId": "c61a3e51-bf50-4a4e-ac45-a85cdaeec7ff"
+                    }
+                }
+            ]
         }
-    ];
-
-    export const mockingFileURL = 'http://www.orimi.com/pdf-test.pdf'
+    }
+}
+    ;
+export const mockingFileURL = 'http://www.orimi.com/pdf-test.pdf'

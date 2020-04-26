@@ -69,6 +69,7 @@ const FileSearch = ({ displayFile, searchResults }) => {
         
         try {
             const response = await axios.get(url);
+            //const response = mockingSearchResults;
             console.log(response);
             if (response && response.data && response.data.list && response.data.list.entries) {
                 console.log("response.data.list.entries = ");
