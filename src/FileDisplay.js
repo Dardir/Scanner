@@ -27,6 +27,8 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
             axios.defaults.headers.common['Authorization'] = process.env.REACT_APP_AUTH_KEY;
             //const url = `http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}${process.env.REACT_APP_SEARCH_PATH}/${metadataObj.id}/content?attachment=false`;
             const url = process.env.REACT_APP_FETCH_URL + `/${metadataObj.id}`;
+            console.log("Calling the following URL to fetch file content");
+            console.log(url); 
             try {
                 const response = await axios.get(url);
                 console.log(response);
