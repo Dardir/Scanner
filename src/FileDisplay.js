@@ -34,7 +34,9 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
                 console.log(response);
                 if (!response && !response.data) {
                     setErrorMessage(null);
-                    return response.data;
+                    const fileURL =  window.URL.createObjectURL(response.data)
+                    console.log(`Converting stram to URL = ${fileURL}`);
+                    return fileURL;
                 }
 
             } catch (error) {
