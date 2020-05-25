@@ -23,23 +23,19 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
     const [fileURL, setFileURL] = useState(null);
 
     useEffect(() => {
-        async function composeFileURL() {
+        async function fetchFileURL() {
             axios.defaults.headers.common['Authorization'] = process.env.REACT_APP_AUTH_KEY;
             //const url = `http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}${process.env.REACT_APP_SEARCH_PATH}/${metadataObj.id}/content?attachment=false`;
-            //const url = process.env.REACT_APP_FETCH_URL + `/${metadataObj.id}`;
-            const url = process.env.REACT_APP_SIGNIN_URL
-            console.log("Calling the following URL to login");
+            const url = process.env.REACT_APP_FETCH_URL + `/${metadataObj.id}`;
+            console.log("Calling the following URL to fetch file content");
             console.log(url); 
             try {
-                const response = await axios.axios.post(url, {
-                    userId: "admin",
-                    password: "admin"
-                  })
+                const response = await axios.get(url);
                 console.log(response);
                 if (response && response.data) {
                     setErrorMessage(null);
-
-                    return `http://localhost:8080/share/proxy/alfresco/slingshot/node/content/workspace/SpacesStore/${metadataObj.id}`
+                    console.log("response.data = "+response.data);
+                    return response.data;
                 }
 
             } catch (error) {
@@ -48,8 +44,7 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
                 return null;
             }
         }
-        //setFileURL(fetchFileURL());
-        setFileURL(composeFileURL());
+        setFileURL(fetchFileURL());
         //setFileURL(mockingFileURL);
 
     }, [metadataObj.id]);
