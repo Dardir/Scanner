@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import axios from 'axios';
 import './FileSearch.css';
 import './DynamsoftSDK.css';
-import { AlfrescoApi, ContentApi } from 'alfresco-js-api';
 //import { mockingFileURL } from './ReferenceData';
 
 const FileDisplay = ({ metadataObj, navigateBack }) => {
@@ -19,7 +18,7 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
 
         return [year, month, day].join('-');
     }
-
+    
     const [errorMessage, setErrorMessage] = useState(null);
     const [fileURL, setFileURL] = useState(null);
 
@@ -29,13 +28,13 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
             //const url = `http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}${process.env.REACT_APP_SEARCH_PATH}/${metadataObj.id}/content?attachment=false`;
             const url = process.env.REACT_APP_FETCH_URL + `/${metadataObj.id}`;
             console.log("Calling the following URL to fetch file content");
-            console.log(url);
+            console.log(url); 
             try {
                 const response = await axios.get(url);
                 console.log(response);
                 if (response && response.data) {
                     setErrorMessage(null);
-                    console.log("response.data = " + response.data);
+                    console.log("response.data = "+response.data);
                     return response.data;
                 }
 
@@ -45,27 +44,7 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
                 return null;
             }
         }
-        function getContentURLFromAlfresco() {
-            try {
-                const alfrescoJsApi = new AlfrescoApi({ hostEcm: `http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}` });
-                alfrescoJsApi.login('admin', 'admin').then(function (data) {
-                    console.log('API called successfully Login ticket:' + data);
-                    const contentApi = new ContentApi(alfrescoJsApi);
-                    console.log(`Getting URL for file ID = ${metadataObj.id}`);
-                    return contentApi.getContentUrl(metadataObj.id);
-                }, function (error) {
-                    console.error(error);
-                    setErrorMessage('' + error);
-                    return null;
-                });
-            } catch (e) {
-                console.error(e);
-                setErrorMessage('' + e);
-                return null;
-            }
-        }
-        //setFileURL(fetchFileURL());
-        setFileURL(getContentURLFromAlfresco());
+        setFileURL(fetchFileURL());
         //setFileURL(mockingFileURL);
 
     }, [metadataObj.id]);
@@ -81,10 +60,10 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
             <div className="divDisplayFile" style={{ borderStyle: "ridge", Height: '688px' }}>
                 <div className="row">
                     <div className="columnDisplay" style={{ Width: '583px', Height: '688px', borderStyle: 'groove', display: 'block' }}>
-                        {
-                            (errorMessage) ? <div style={{ color: "red" }}>تعذر الاتصال بالنظام<br />{errorMessage} </div> : <iframe title='Display File' src={fileURL} width="100%" height="100%"></iframe>
-                        }
-
+                    {
+                        (errorMessage)? <div style={{ color: "red" }}>تعذر الاتصال بالنظام<br />{errorMessage} </div> : <iframe title='Display File' src={fileURL} width="100%" height="100%"></iframe>
+                    }
+                        
                     </div>
                     <div className="column" style={{ float: 'right' }}>
                         <div className="row">
