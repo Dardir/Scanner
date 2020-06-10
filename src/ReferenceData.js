@@ -1,9 +1,5 @@
 export const counsulates = [
     {
-        key: 'Gedda',
-        value: 'جدة'
-    },
-    {
         key: 'Riyadh',
         value: 'الرياض'
     },
@@ -12,38 +8,41 @@ export const counsulates = [
         value: 'الدمام'
     },
     {
-        key: 'East',
-        value: 'المنطقة الشرقية'
+        key: 'Qaseem',
+        value: 'القصيم'
+    },
+    {
+        key: 'AlJawf',
+        value: 'الجوف'
     },
     {
         key: 'Arar',
         value: 'عرعر'
+    },
+    {
+        key: 'Ehsaa',
+        value: 'الاحساء'
+    },
+    {
+        key: 'hael',
+        value: 'حائل'
     }
 
 ];
 
 export const delegationTypes = [
     {
-        key: 'cases',
-        value: 'توكيل قضايا'
+        key: 'delegation',
+        value: 'توكيل'
     },
     {
-        key: 'bank',
-        value: 'توكيل بنكي'
+        key: 'confirmation',
+        value: 'تصديق'
     },
     {
-        key: 'marriage',
-        value: 'توكيل عقد قران'
-    },
-    {
-        key: 'government',
-        value: 'توكيل للتعامل و استلام وثائق حكومية'
-    },
-    {
-        key: 'sell',
-        value: 'توكيل بيع و شراء'
+        key: 'commercial',
+        value: 'تجاري'
     }
-
 ];
 
 

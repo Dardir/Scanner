@@ -21,7 +21,7 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
     delegationSubject: '',
     keySearch: ''
   });
-  const mandatoryfields = ['counsulate','delegationNumber','delegationDate','transactionDate','employeeName','delegationType','delegator','delegatorPassport','delegatedTo','delegatedToPassport'];
+  const mandatoryfields = ['counsulate','delegationNumber','delegationDate','transactionDate','employeeName','delegationType','delegatedTo','delegatedToPassport'];
   const [isDisabled] = useValidateMandatoryFields(metadataform,mandatoryfields);
 
   const updateField = e => {
@@ -74,7 +74,7 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegationNumber">
-                    <p style={{ color: "red", paddingLeft: "5px" }}>*</p><p>رقم التوكيل</p>
+                    <p style={{ color: "red", paddingLeft: "5px" }}>*</p><p>رقم المعاملة</p>
                   </label>
                   <input type="text" size="20" id="txt_delegationNumber" name="delegationNumber" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
@@ -119,7 +119,7 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
           </li>
           <li>
             <div className="metaDivType">
-              <b> تفاصيل التوكيل </b>
+              <b> تفاصيل المعاملة </b>
             </div>
             <div id="div_DelegationDetails" className="divTableStyle">
               <ul id="ulDelegationDetails">
@@ -140,13 +140,13 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegator">
-                    <p style={{ color: "red", paddingLeft: "5px" }}>*</p><p>الموكل</p>
+                    <p>صاحب المعاملة</p>
                   </label>
                   <input type="text" size="20" id="txt_delegator" name="delegator" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegatorPassport">
-                    <p style={{ color: "red", paddingLeft: "5px" }}>*</p><p>رقم جواز سفر الموكل</p>
+                    <p>رقم جواز السفر / الرقم القومي</p>
                   </label>
                   <input type="text" size="20" id="txt_delegatorPassport" name="delegatorPassport" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
@@ -164,7 +164,7 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegationSubject">
-                    <p>موضوع التوكيل</p>
+                    <p>موضوع المعاملة</p>
                   </label>
                   <textarea rows="5" cols="47" id="txt_delegationSubject" name="delegationSubject" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
