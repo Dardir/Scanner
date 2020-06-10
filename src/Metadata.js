@@ -90,10 +90,10 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
               <ul id="ulDelegationDetails">
                 <li>
                   <label htmlFor="delegationType">
-                    <p style={{ color: "red", paddingLeft: "5px" }}>*</p><p>نوع التوكيل</p>
+                    <p style={{ color: "red", paddingLeft: "5px" }}>*</p><p>نوع المعاملة</p>
                   </label>
                   <select size="1" id="delegationType"  name="delegationType" onChange={updateField} disabled = {!metadataEnabled}>
-                  <option value="0">اختر نوع التوكيل</option>
+                  <option value="0">اختر نوع المعاملة</option>
                     {
                       delegationTypes.map((item) => {
                         return (
