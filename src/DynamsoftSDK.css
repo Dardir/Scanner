@@ -456,7 +456,7 @@ select#source {
 select#counsulate {
     margin-top: 3px;
     padding-left: 3px;
-    width: 100%;
+    width: 95%;
     height: 26px;
     font-size: 12px;
     border: solid 1px #ccc;
@@ -470,7 +470,7 @@ select#counsulate {
 select#delegationType {
     margin-top: 3px;
     padding-left: 3px;
-    width: 100%;
+    width: 95%;
     height: 26px;
     font-size: 12px;
     border: solid 1px #ccc;

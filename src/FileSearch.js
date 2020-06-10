@@ -144,7 +144,7 @@ const FileSearch = ({ displayFile, searchResults }) => {
                                 </div>
                             </div>
                             <div className="row">
-                            <div className="internal-column">
+                                <div className="internal-column">
                                     <li style={{ textAlign: "right", listStyleType: "none" }}>
                                         <label htmlFor="txt_delegatorPhone">
                                             <p>رقم المحمول</p>
@@ -188,6 +188,9 @@ const FileSearch = ({ displayFile, searchResults }) => {
                                         <input type="text" size="20" id="txt_delegationNumber" name="delegationNumber" value={metadataform.delegationNumber} onChange={updateField} />
                                     </li>
                                 </div>
+
+                            </div>
+                            <div className="row">
                                 <div className="internal-column">
                                     <li style={{ textAlign: "right", listStyleType: "none" }}>
                                         <label htmlFor="date_transactionDate">
