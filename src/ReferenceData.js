@@ -48,10 +48,6 @@ export const delegationTypes = [
 
 export const keyMap = [
     {
-        key: 'dc:EDate',
-        value: 'delegationDate'
-    },
-    {
         key: 'dc:Embassy',
         value: 'counsulate'
     },

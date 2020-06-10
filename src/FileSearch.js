@@ -13,7 +13,6 @@ const FileSearch = ({ displayFile, searchResults }) => {
     const [metadataform, setState] = useState({
         counsulate: '',
         delegationNumber: '',
-        delegationDate: '',
         transactionDate: '',
         employeeName: '',
         employeeNumber: '',
@@ -49,12 +48,6 @@ const FileSearch = ({ displayFile, searchResults }) => {
         });
     };
 
-    const handleDelegationDateChange = date => {
-        setState({
-            ...metadataform,
-            delegationDate: date
-        });
-    };
     const handleTransactionDateChange = date => {
         setState({
             ...metadataform,
@@ -220,20 +213,6 @@ const FileSearch = ({ displayFile, searchResults }) => {
                                             <p>رقم التوكيل</p>
                                         </label>
                                         <input type="text" size="20" id="txt_delegationNumber" name="delegationNumber" value={metadataform.delegationNumber} onChange={updateField} />
-                                    </li>
-                                </div>
-                                <div className="internal-column">
-                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
-                                        <label htmlFor="date_delegationDate">
-                                            <p style={{ paddingLeft: "74px" }}>تاريخ التوكيل</p>
-                                        </label>
-                                        <DatePicker
-                                            selected={metadataform.delegationDate}
-                                            onChange={handleDelegationDateChange}
-                                            id="date_delegationDate"
-                                            onSelect={handleDelegationDateChange}
-                                        />
-
                                     </li>
                                 </div>
                             </div>

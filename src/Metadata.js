@@ -9,7 +9,6 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
   const [metadataform, setState] = useState({
     counsulate: '',
     delegationNumber: '',
-    delegationDate: '',
     transactionDate: '',
     employeeName: '',
     employeeNumber: '',
@@ -21,7 +20,7 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
     delegationSubject: '',
     keySearch: ''
   });
-  const mandatoryfields = ['counsulate','delegationNumber','delegationDate','transactionDate','employeeName','delegationType','delegatedTo','delegatedToPassport'];
+  const mandatoryfields = ['counsulate','delegationNumber','transactionDate','employeeName','delegationType','delegatedTo','delegatedToPassport'];
   const [isDisabled] = useValidateMandatoryFields(metadataform,mandatoryfields);
 
   const updateField = e => {
@@ -31,12 +30,6 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
     });
   };
 
-  const handleDelegationDateChange = date => {
-    setState({
-      ...metadataform,
-      delegationDate: date
-    });
-  };
   const handleTransactionDateChange = date => {
     setState({
       ...metadataform,
@@ -77,18 +70,6 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                     <p style={{ color: "red", paddingLeft: "5px" }}>*</p><p>رقم المعاملة</p>
                   </label>
                   <input type="text" size="20" id="txt_delegationNumber" name="delegationNumber" onChange={updateField} disabled = {!metadataEnabled}/>
-                </li>
-                <li style={{ paddingTop: "10px" }}>
-                  <label htmlFor="date_delegationDate">
-                    <p style={{ color: "red", paddingLeft: "5px" }}>*</p><p>تاريخ التوكيل</p>
-                  </label>
-                  <DatePicker
-                    selected={metadataform.delegationDate}
-                    onChange={handleDelegationDateChange}
-                    id="date_delegationDate"
-                    onSelect={handleDelegationDateChange}
-                    disabled = {!metadataEnabled}
-                  />
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="date_transactionDate">

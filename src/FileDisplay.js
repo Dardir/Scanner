@@ -85,14 +85,6 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
                                     <input readOnly type="text" id="txt_delegationNumber" style={{ paddingLeft: "5px", textAlign: "right" }} name="delegationNumber" value={metadataObj.properties.delegationNumber} />
                                 </li>
                             </div>
-                            <div className="internal-column">
-                                <li style={{ textAlign: "right", listStyleType: "none" }}>
-                                    <label htmlFor="date_delegationDate">
-                                        <p style={{ paddingLeft: "74px" }}>تاريخ التوكيل</p>
-                                    </label>
-                                    <input readOnly type="text" id="date_delegationDate" style={{ paddingLeft: "5px", textAlign: "right" }} name="delegationDate" value={formatDate(metadataObj.properties.delegationDate)} />
-                                </li>
-                            </div>
                         </div>
                         <div className="row">
                             <div className="internal-column">
