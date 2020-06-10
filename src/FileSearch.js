@@ -17,6 +17,7 @@ const FileSearch = ({ displayFile, searchResults }) => {
         delegationType: '',
         delegator: '',
         delegatorPassport: '',
+        delegatorPhone: '',
         delegationSubject: '',
         keySearch: ''
     });
@@ -139,6 +140,16 @@ const FileSearch = ({ displayFile, searchResults }) => {
                                             <p>كلمات بحثية</p>
                                         </label>
                                         <input type="text" size="20" id="txt_keySearch" name="keySearch" onChange={updateField} />
+                                    </li>
+                                </div>
+                            </div>
+                            <div className="row">
+                            <div className="internal-column">
+                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
+                                        <label htmlFor="txt_delegatorPhone">
+                                            <p>رقم المحمول</p>
+                                        </label>
+                                        <input type="text" size="20" id="txt_delegatorPhone" name="delegatorPhone" onChange={updateField} />
                                     </li>
                                 </div>
                             </div>

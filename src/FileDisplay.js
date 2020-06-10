@@ -130,6 +130,14 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
                                     <input readOnly type="text" id="txt_keySearch" style={{ paddingLeft: "5px", textAlign: "right" }} name="keySearch" value={metadataObj.properties.keySearch} />
                                 </li>
                             </div>
+                            <div className="internal-column">
+                                <li style={{ textAlign: "right", listStyleType: "none" }}>
+                                    <label htmlFor="txt_delegatorPhone">
+                                        <p>رقم المحمول</p>
+                                    </label>
+                                    <input readOnly type="text" id="txt_delegatorPhone" style={{ paddingLeft: "5px", textAlign: "right" }} name="delegator" value={metadataObj.properties.delegatorPhone} />
+                                </li>
+                            </div>
                         </div>
                     </div>
                 </div>

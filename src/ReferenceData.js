@@ -64,6 +64,10 @@ export const keyMap = [
         value: 'delegatorPassport'
     },
     {
+        key: 'dc:POAPhone',
+        value: 'delegatorPhone'
+    },
+    {
         key: 'dc:POAKeyword',
         value: 'keySearch'
     },
@@ -124,6 +128,7 @@ export const mockingSearchResults =
                             "cm:author": "Tamer Mahrous",
                             "dc:POASubject": "قضايا",
                             "dc:POAFromPass": "10245",
+                            "dc:POAPhone":"01000100010",
                             "dc:Embassy": "الرياض",
                             "dc:POANumber": "123",
                             "dc:POAKeyword": "قضية الارض"
@@ -164,6 +169,7 @@ export const mockingSearchResults =
                             "cm:author": "Tamer Mahrous",
                             "dc:POASubject": "بنك القاهرة",
                             "dc:POAFromPass": "784511",
+                            "dc:POAPhone":"01000100010",
                             "dc:Embassy": "جدة",
                             "dc:POANumber": "12345",
                             "dc:POAKeyword": "بنك\nالقاهرة\nتوكيل"

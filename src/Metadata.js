@@ -13,6 +13,7 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
     delegationType: '',
     delegator: '',
     delegatorPassport: '',
+    delegatorPhone: '',
     delegationSubject: '',
     keySearch: ''
   });
@@ -114,6 +115,12 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                     <p>رقم جواز السفر / الرقم القومي</p>
                   </label>
                   <input type="text" size="20" id="txt_delegatorPassport" name="delegatorPassport" onChange={updateField} disabled = {!metadataEnabled}/>
+                </li>
+                <li style={{ paddingTop: "10px" }}>
+                  <label htmlFor="txt_delegatorPhone">
+                    <p>رقم جواز السفر / الرقم القومي</p>
+                  </label>
+                  <input type="text" size="20" id="txt_delegatorPhone" name="delegatorPhone" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegationSubject">
