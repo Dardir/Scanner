@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './FileSearch.css';
 import './DynamsoftSDK.css'
 import { counsulates, delegationTypes, keyMap } from './ReferenceData';
-//import { mockingSearchResults } from './ReferenceData';
+import { mockingSearchResults } from './ReferenceData';
 import DatePicker from "react-datepicker";
 import useValidateAnyValueInFields from './useValidateAnyValueInFields';
 import useFilterSearchResult from './useFilterSearchResult';
@@ -58,8 +58,8 @@ const FileSearch = ({ displayFile, searchResults }) => {
         const url = process.env.REACT_APP_SEARCH_URL + `/${process.env.REACT_APP_FOLDER_ID}`;
         
         try {
-            const response = await axios.get(url);
-            //const response = mockingSearchResults;
+            //const response = await axios.get(url);
+            const response = mockingSearchResults;
             console.log(response);
             if (response && response.data && response.data.list && response.data.list.entries) {
                 console.log("response.data.list.entries = ");
@@ -96,17 +96,17 @@ const FileSearch = ({ displayFile, searchResults }) => {
                 <div className="row">
                     <div className="column">
                         <div className="metaDivType" style={{ borderStyle: "ridge" }}>
-                            <b> تفاصيل التوكيل</b>
+                            <b> تفاصيل المعاملة</b>
                         </div>
                         <div id="div_DelegationDetails" className="divTableSearchStyle" style={{ borderStyle: "ridge" }}>
                             <div className="row">
                                 <div className="internal-column">
                                     <li style={{ textAlign: "right", listStyleType: "none" }}>
                                         <label htmlFor="delegationType">
-                                            <p>نوع التوكيل</p>
+                                            <p>نوع المعاملة</p>
                                         </label>
                                         <select size="1" id="delegationType" name="delegationType" onChange={updateField}>
-                                            <option value="0">اختر نوع التوكيل</option>
+                                            <option value="0">اختر نوع المعاملة</option>
                                             {
                                                 delegationTypes.map((item) => {
                                                     return (
@@ -120,7 +120,7 @@ const FileSearch = ({ displayFile, searchResults }) => {
                                 <div className="internal-column">
                                     <li style={{ textAlign: "right", listStyleType: "none" }}>
                                         <label htmlFor="txt_delegator">
-                                            <p>الموكل</p>
+                                            <p>صاحب المعاملة</p>
                                         </label>
                                         <input type="text" size="20" id="txt_delegator" name="delegator" onChange={updateField} />
                                     </li>
@@ -130,17 +130,15 @@ const FileSearch = ({ displayFile, searchResults }) => {
                                 <div className="internal-column">
                                     <li style={{ textAlign: "right", listStyleType: "none" }}>
                                         <label htmlFor="txt_delegatorPassport">
-                                            <p>رقم جواز سفر الموكل</p>
+                                            <p>رقم جواز سفر صاحب المعاملة / الرقم القومي</p>
                                         </label>
                                         <input type="text" size="20" id="txt_delegatorPassport" name="delegatorPassport" onChange={updateField} />
                                     </li>
                                 </div>
-                            </div>
-                            <div className="row">
                                 <div className="internal-column">
                                     <li style={{ textAlign: "right", listStyleType: "none" }}>
                                         <label htmlFor="txt_keySearch">
-                                            <p>كلمات بحثية</p>
+                                            <p>كلمات بحثية</p> 
                                         </label>
                                         <input type="text" size="20" id="txt_keySearch" name="keySearch" onChange={updateField} />
                                     </li>
@@ -187,12 +185,10 @@ const FileSearch = ({ displayFile, searchResults }) => {
                                         </select>
                                     </li>
                                 </div>
-                            </div>
-                            <div className="row">
                                 <div className="internal-column">
                                     <li style={{ textAlign: "right", listStyleType: "none" }}>
                                         <label htmlFor="txt_delegationNumber">
-                                            <p>رقم التوكيل</p>
+                                            <p>رقم المعاملة</p>
                                         </label>
                                         <input type="text" size="20" id="txt_delegationNumber" name="delegationNumber" value={metadataform.delegationNumber} onChange={updateField} />
                                     </li>
@@ -252,13 +248,10 @@ const FileSearch = ({ displayFile, searchResults }) => {
                                                 <div className="rowTable header">
                                                     <div className="cell"/>
                                                     <div className="cell">
-                                                        الموكل اليه
+                                                        صاحب المعاملة
 							                        </div>
                                                     <div className="cell">
-                                                        الموكل
-							                        </div>
-                                                    <div className="cell">
-                                                        نوع التوكيل
+                                                        نوع المعاملة
 							                        </div>
                                                     <div className="cell">
                                                         القنصلية

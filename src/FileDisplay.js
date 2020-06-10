@@ -80,7 +80,7 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
                             <div className="internal-column">
                                 <li style={{ textAlign: "right", listStyleType: "none" }}>
                                     <label htmlFor="txt_delegationNumber">
-                                        <p>رقم التوكيل</p>
+                                        <p>رقم المعاملة</p>
                                     </label>
                                     <input readOnly type="text" id="txt_delegationNumber" style={{ paddingLeft: "5px", textAlign: "right" }} name="delegationNumber" value={metadataObj.properties.delegationNumber} />
                                 </li>
@@ -117,7 +117,7 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
                             <div className="internal-column">
                                 <li style={{ textAlign: "right", listStyleType: "none" }}>
                                     <label htmlFor="delegationType">
-                                        <p>نوع التوكيل</p>
+                                        <p>نوع المعاملة</p>
                                     </label>
                                     <input readOnly type="text" id="delegationType" style={{ paddingLeft: "5px", textAlign: "right" }} name="delegationType" value={metadataObj.properties.delegationType} />
                                 </li>
@@ -127,7 +127,7 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
                             <div className="internal-column">
                                 <li style={{ textAlign: "right", listStyleType: "none" }}>
                                     <label htmlFor="txt_delegator">
-                                        <p>الموكل</p>
+                                        <p>صاحب المعاملة</p>
                                     </label>
                                     <input readOnly type="text" id="txt_delegator" style={{ paddingLeft: "5px", textAlign: "right" }} name="delegator" value={metadataObj.properties.delegator} />
                                 </li>
@@ -135,7 +135,7 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
                             <div className="internal-column">
                                 <li style={{ textAlign: "right", listStyleType: "none" }}>
                                     <label htmlFor="txt_delegatorPassport">
-                                        <p>رقم جواز سفر الموكل</p>
+                                        <p>رقم جواز سفر صاحب المعاملة / الرقم القومي</p>
                                     </label>
                                     <input readOnly type="text" id="txt_delegatorPassport" style={{ paddingLeft: "5px", textAlign: "right" }} name="delegator" value={metadataObj.properties.delegatorPassport} />
                                 </li>
