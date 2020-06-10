@@ -12,7 +12,6 @@ import axios from 'axios';
 const FileSearch = ({ displayFile, searchResults }) => {
     const [metadataform, setState] = useState({
         counsulate: '',
-        barcode: '',
         delegationNumber: '',
         delegationDate: '',
         transactionDate: '',
@@ -211,14 +210,6 @@ const FileSearch = ({ displayFile, searchResults }) => {
                                                 })
                                             }
                                         </select>
-                                    </li>
-                                </div>
-                                <div className="internal-column">
-                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
-                                        <label htmlFor="txt_barcode">
-                                            <p>باركود</p>
-                                        </label>
-                                        <input type="text" size="20" id="txt_barcode" style={{ paddingLeft: "5px" }} name="barcode" value={metadataform.barcode} onChange={updateField} />
                                     </li>
                                 </div>
                             </div>

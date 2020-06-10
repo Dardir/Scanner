@@ -49,10 +49,6 @@ export const delegationTypes = [
 
 export const keyMap = [
     {
-        key: 'dc:Barcode',
-        value: 'barcode'
-    },
-    {
         key: 'dc:EDate',
         value: 'delegationDate'
     },

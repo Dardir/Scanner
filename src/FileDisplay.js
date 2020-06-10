@@ -75,14 +75,6 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
                                     <input readOnly type="text" id="txt_counsulate" style={{ paddingLeft: "5px", textAlign: "right" }} name="counsulate" value={metadataObj.properties.counsulate} />
                                 </li>
                             </div>
-                            <div className="internal-column">
-                                <li style={{ textAlign: "right", listStyleType: "none" }}>
-                                    <label htmlFor="txt_barcode">
-                                        <p>باركود</p>
-                                    </label>
-                                    <input readOnly type="text" id="txt_barcode" style={{ paddingLeft: "5px", textAlign: "right" }} name="barcode" value={metadataObj.properties.barcode} />
-                                </li>
-                            </div>
                         </div>
                         <div className="row">
                             <div className="internal-column">

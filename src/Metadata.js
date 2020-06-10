@@ -8,7 +8,6 @@ import useValidateMandatoryFields from './useValidateMandatoryFields';
 const Metadata = ({saveMetadataObj,metadataEnabled}) => {
   const [metadataform, setState] = useState({
     counsulate: '',
-    barcode: '',
     delegationNumber: '',
     delegationDate: '',
     transactionDate: '',
@@ -72,12 +71,6 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                       })
                     }
                   </select>
-                </li>
-                <li style={{ paddingTop: "10px" }}>
-                  <label htmlFor="txt_barcode">
-                    <p>باركود</p>
-                  </label>
-                  <input type="text" size="20" id="txt_barcode" name="barcode" onChange={updateField} disabled = {!metadataEnabled} />
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegationNumber">
