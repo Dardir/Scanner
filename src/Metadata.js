@@ -61,7 +61,16 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                     }
                   </select>
                 </li>
-                <li style={{ paddingTop: "10px" }}>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div className="metaDivType">
+              <b> تفاصيل المعاملة </b>
+            </div>
+            <div id="div_DelegationDetails" className="divTableStyle">
+              <ul id="ulDelegationDetails">
+              <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegationNumber">
                     <p style={{ color: "red", paddingLeft: "5px" }}>*</p><p>رقم المعاملة</p>
                   </label>
@@ -79,15 +88,6 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                     disabled = {!metadataEnabled}
                   />
                 </li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <div className="metaDivType">
-              <b> تفاصيل المعاملة </b>
-            </div>
-            <div id="div_DelegationDetails" className="divTableStyle">
-              <ul id="ulDelegationDetails">
                 <li>
                   <label htmlFor="delegationType">
                     <p style={{ color: "red", paddingLeft: "5px" }}>*</p><p>نوع المعاملة</p>

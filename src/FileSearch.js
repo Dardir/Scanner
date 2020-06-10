@@ -24,19 +24,19 @@ const FileSearch = ({ displayFile, searchResults }) => {
     const [searchResultArr, setSearchResultArr] = useState([]);
     let filteredDisplayedArr = null;
     const [filteredSearchResultArr] = useFilterSearchResult(searchResultArr, metadataform, keyMap);
-    const isEmptyMetadata = (metadata) =>{
-        return Object.keys(metadata).every((key)=>{
+    const isEmptyMetadata = (metadata) => {
+        return Object.keys(metadata).every((key) => {
             return metadata[key] === ''
         })
     }
-    
-    if(isEmptyMetadata(metadataform)){
+
+    if (isEmptyMetadata(metadataform)) {
         filteredDisplayedArr = searchResults;
-    }else{
+    } else {
         filteredDisplayedArr = filteredSearchResultArr;
     }
     const [errorMessage, setErrorMessage] = useState(null);
-    
+
     const updateField = e => {
         setState({
             ...metadataform,
@@ -54,7 +54,7 @@ const FileSearch = ({ displayFile, searchResults }) => {
         //axios.defaults.headers.common['Authorization'] = process.env.REACT_APP_AUTH_KEY;
         //const url = `http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}${process.env.REACT_APP_SEARCH_PATH}/${process.env.REACT_APP_FOLDER_ID}/children?include=properties&where=(nodeType%3D'${process.env.REACT_APP_NODE_TYPE}')`;
         const url = process.env.REACT_APP_SEARCH_URL + `/${process.env.REACT_APP_FOLDER_ID}`;
-        
+
         try {
             const response = await axios.get(url);
             //const response = mockingSearchResults;
@@ -64,7 +64,7 @@ const FileSearch = ({ displayFile, searchResults }) => {
                 console.dir(response.data.list.entries);
                 setErrorMessage(null);
                 setSearchResultArr(response.data.list.entries);
-            }else if (response && response.data){
+            } else if (response && response.data) {
                 setErrorMessage('' + response.data);
             }
 
@@ -74,8 +74,8 @@ const FileSearch = ({ displayFile, searchResults }) => {
         }
         //setSearchResultArr(mockingSearchResults);
     }
-    function onClickDisplay (id){
-        displayFile(filteredDisplayedArr[id],filteredDisplayedArr);
+    function onClickDisplay(id) {
+        displayFile(filteredDisplayedArr[id], filteredDisplayedArr);
     }
 
     return (
@@ -136,27 +136,11 @@ const FileSearch = ({ displayFile, searchResults }) => {
                                 <div className="internal-column">
                                     <li style={{ textAlign: "right", listStyleType: "none" }}>
                                         <label htmlFor="txt_keySearch">
-                                            <p>كلمات بحثية</p> 
+                                            <p>كلمات بحثية</p>
                                         </label>
                                         <input type="text" size="20" id="txt_keySearch" name="keySearch" onChange={updateField} />
                                     </li>
                                 </div>
-                            </div>
-                            <div className="row">
-                                <div className="internal-column" />
-                                <div className="internal-column" />
-                            </div>
-                            <div className="row">
-                                <div className="internal-column" />
-                                <div className="internal-column" />
-                            </div>
-                            <div className="row">
-                                <div className="internal-column" />
-                                <div className="internal-column" />
-                            </div>
-                            <div className="row" style={{ paddingBottom: "3px" }}>
-                                <div className="internal-column" />
-                                <div className="internal-column" />
                             </div>
                         </div>
                     </div>
@@ -183,6 +167,8 @@ const FileSearch = ({ displayFile, searchResults }) => {
                                         </select>
                                     </li>
                                 </div>
+                            </div>
+                            <div className="row">
                                 <div className="internal-column">
                                     <li style={{ textAlign: "right", listStyleType: "none" }}>
                                         <label htmlFor="txt_delegationNumber">
@@ -191,8 +177,6 @@ const FileSearch = ({ displayFile, searchResults }) => {
                                         <input type="text" size="20" id="txt_delegationNumber" name="delegationNumber" value={metadataform.delegationNumber} onChange={updateField} />
                                     </li>
                                 </div>
-                            </div>
-                            <div className="row">
                                 <div className="internal-column">
                                     <li style={{ textAlign: "right", listStyleType: "none" }}>
                                         <label htmlFor="date_transactionDate">
@@ -207,8 +191,6 @@ const FileSearch = ({ displayFile, searchResults }) => {
 
                                     </li>
                                 </div>
-                            </div>
-                            <div className="row">
                             </div>
                         </div>
                     </div>
@@ -228,7 +210,7 @@ const FileSearch = ({ displayFile, searchResults }) => {
                                             <div className="table">
 
                                                 <div className="rowTable header">
-                                                    <div className="cell"/>
+                                                    <div className="cell" />
                                                     <div className="cell">
                                                         صاحب المعاملة
 							                        </div>
@@ -240,16 +222,16 @@ const FileSearch = ({ displayFile, searchResults }) => {
 							                        </div><div className="cell">
                                                         اسم الملف
 							                        </div>
-                                                 
+
                                                 </div>
                                                 {
-                                                    filteredDisplayedArr.map((result,key) => {
+                                                    filteredDisplayedArr.map((result, key) => {
                                                         return (
                                                             <div key={key} className="rowTable">
                                                                 <div className="cell" data-title="Display">
-                                                                    <button onClick={()=> {onClickDisplay(key)}} ><b>عرض الملف</b></button>
+                                                                    <button onClick={() => { onClickDisplay(key) }} ><b>عرض الملف</b></button>
                                                                 </div>
-                                                                
+
                                                                 <div className="cell" data-title="Delegator">
                                                                     {result.properties.delegator}
                                                                 </div>
@@ -262,9 +244,9 @@ const FileSearch = ({ displayFile, searchResults }) => {
                                                                 <div className="cell" data-title="File Name">
                                                                     {result.name}
                                                                 </div>
-                                                                
+
                                                             </div>
-                                                            
+
                                                         )
 
                                                     })

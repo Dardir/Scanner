@@ -116,7 +116,9 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
                                     <input readOnly type="text" id="txt_delegator" style={{ paddingLeft: "5px", textAlign: "right" }} name="delegator" value={metadataObj.properties.delegator} />
                                 </li>
                             </div>
-                            <div className="internal-column">
+                        </div>
+                        <div className="row">
+                        <div className="internal-column">
                                 <li style={{ textAlign: "right", listStyleType: "none" }}>
                                     <label htmlFor="txt_delegatorPassport">
                                         <p>رقم جواز سفر صاحب المعاملة / الرقم القومي</p>
