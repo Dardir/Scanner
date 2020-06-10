@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './FileSearch.css';
 import './DynamsoftSDK.css';
@@ -18,7 +18,7 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
 
         return [year, month, day].join('-');
     }
-    
+
     const [errorMessage, setErrorMessage] = useState(null);
     const [fileURL, setFileURL] = useState(null);
 
@@ -28,13 +28,13 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
             //const url = `http://${process.env.REACT_APP_HOST}:${process.env.REACT_APP_PORT}${process.env.REACT_APP_SEARCH_PATH}/${metadataObj.id}/content?attachment=false`;
             const url = process.env.REACT_APP_FETCH_URL + `/${metadataObj.id}`;
             console.log("Calling the following URL to fetch file content");
-            console.log(url); 
+            console.log(url);
             try {
                 const response = await axios.get(url);
                 console.log(response);
                 if (response && response.data) {
                     setErrorMessage(null);
-                    console.log("response.data = "+response.data);
+                    console.log("response.data = " + response.data);
                     return response.data;
                 }
 
@@ -60,10 +60,10 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
             <div className="divDisplayFile" style={{ borderStyle: "ridge", Height: '688px' }}>
                 <div className="row">
                     <div className="columnDisplay" style={{ Width: '583px', Height: '688px', borderStyle: 'groove', display: 'block' }}>
-                    {
-                        (errorMessage)? <div style={{ color: "red" }}>تعذر الاتصال بالنظام<br />{errorMessage} </div> : <iframe title='Display File' src={fileURL} width="100%" height="100%"></iframe>
-                    }
-                        
+                        {
+                            (errorMessage) ? <div style={{ color: "red" }}>تعذر الاتصال بالنظام<br />{errorMessage} </div> : <iframe title='Display File' src={fileURL} width="100%" height="100%"></iframe>
+                        }
+
                     </div>
                     <div className="column" style={{ float: 'right' }}>
                         <div className="row">
@@ -75,8 +75,6 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
                                     <input readOnly type="text" id="txt_counsulate" style={{ paddingLeft: "5px", textAlign: "right" }} name="counsulate" value={metadataObj.properties.counsulate} />
                                 </li>
                             </div>
-                        </div>
-                        <div className="row">
                             <div className="internal-column">
                                 <li style={{ textAlign: "right", listStyleType: "none" }}>
                                     <label htmlFor="txt_delegationNumber">
@@ -96,8 +94,6 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
 
                                 </li>
                             </div>
-                        </div>
-                        <div className="row">
                             <div className="internal-column">
                                 <li style={{ textAlign: "right", listStyleType: "none" }}>
                                     <label htmlFor="delegationType">
@@ -116,9 +112,7 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
                                     <input readOnly type="text" id="txt_delegator" style={{ paddingLeft: "5px", textAlign: "right" }} name="delegator" value={metadataObj.properties.delegator} />
                                 </li>
                             </div>
-                        </div>
-                        <div className="row">
-                        <div className="internal-column">
+                            <div className="internal-column">
                                 <li style={{ textAlign: "right", listStyleType: "none" }}>
                                     <label htmlFor="txt_delegatorPassport">
                                         <p>رقم جواز سفر صاحب المعاملة / الرقم القومي</p>
