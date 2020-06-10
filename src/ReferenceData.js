@@ -84,14 +84,6 @@ export const keyMap = [
         value: 'delegationSubject'
     },
     {
-        key: 'dc:POATo',
-        value: 'delegatedTo'
-    },
-    {
-        key: 'dc:POAToPass',
-        value: 'delegatedToPassport'
-    },
-    {
         key: 'dc:POAType',
         value: 'delegationType'
     }

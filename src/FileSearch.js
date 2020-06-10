@@ -19,8 +19,6 @@ const FileSearch = ({ displayFile, searchResults }) => {
         delegationType: '',
         delegator: '',
         delegatorPassport: '',
-        delegatedTo: '',
-        delegatedToPassport: '',
         delegationSubject: '',
         keySearch: ''
     });
@@ -137,24 +135,8 @@ const FileSearch = ({ displayFile, searchResults }) => {
                                         <input type="text" size="20" id="txt_delegatorPassport" name="delegatorPassport" onChange={updateField} />
                                     </li>
                                 </div>
-                                <div className="internal-column">
-                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
-                                        <label htmlFor="txt_delegatedTo">
-                                            <p> الموكل اليه</p>
-                                        </label>
-                                        <input type="text" size="20" id="txt_delegatedTo" name="delegatedTo" onChange={updateField} />
-                                    </li>
-                                </div>
                             </div>
                             <div className="row">
-                                <div className="internal-column">
-                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
-                                        <label htmlFor="txt_delegatedToPassport">
-                                            <p> رقم جواز سفر الموكل اليه</p>
-                                        </label>
-                                        <input type="text" size="20" id="txt_delegatedToPassport" name="delegatedToPassport" onChange={updateField} />
-                                    </li>
-                                </div>
                                 <div className="internal-column">
                                     <li style={{ textAlign: "right", listStyleType: "none" }}>
                                         <label htmlFor="txt_keySearch">
@@ -293,9 +275,6 @@ const FileSearch = ({ displayFile, searchResults }) => {
                                                                     <button onClick={()=> {onClickDisplay(key)}} ><b>عرض الملف</b></button>
                                                                 </div>
                                                                 
-                                                                <div className="cell" data-title="Delegated To">
-                                                                    {result.properties.delegatedTo}
-                                                                </div>
                                                                 <div className="cell" data-title="Delegator">
                                                                     {result.properties.delegator}
                                                                 </div>

@@ -15,12 +15,10 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
     delegationType: '',
     delegator: '',
     delegatorPassport: '',
-    delegatedTo: '',
-    delegatedToPassport: '',
     delegationSubject: '',
     keySearch: ''
   });
-  const mandatoryfields = ['counsulate','delegationNumber','transactionDate','employeeName','delegationType','delegatedTo','delegatedToPassport'];
+  const mandatoryfields = ['counsulate','delegationNumber','transactionDate','employeeName','delegationType'];
   const [isDisabled] = useValidateMandatoryFields(metadataform,mandatoryfields);
 
   const updateField = e => {
@@ -130,18 +128,6 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                     <p>رقم جواز السفر / الرقم القومي</p>
                   </label>
                   <input type="text" size="20" id="txt_delegatorPassport" name="delegatorPassport" onChange={updateField} disabled = {!metadataEnabled}/>
-                </li>
-                <li style={{ paddingTop: "10px" }}>
-                  <label htmlFor="txt_delegatedTo">
-                    <p style={{ color: "red", paddingLeft: "5px" }}>*</p><p> الموكل اليه</p>
-                  </label>
-                  <input type="text" size="20" id="txt_delegatedTo" name="delegatedTo" onChange={updateField} disabled = {!metadataEnabled}/>
-                </li>
-                <li style={{ paddingTop: "10px" }}>
-                  <label htmlFor="txt_delegatedToPassport">
-                    <p style={{ color: "red", paddingLeft: "5px" }}>*</p><p> رقم جواز سفر الموكل اليه</p>
-                  </label>
-                  <input type="text" size="20" id="txt_delegatedToPassport" name="delegatedToPassport" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="txt_delegationSubject">

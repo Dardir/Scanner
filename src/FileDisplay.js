@@ -144,24 +144,6 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
                         <div className="row">
                             <div className="internal-column">
                                 <li style={{ textAlign: "right", listStyleType: "none" }}>
-                                    <label htmlFor="txt_delegatedTo">
-                                        <p> الموكل اليه</p>
-                                    </label>
-                                    <input readOnly type="text" id="txt_delegatedTo" style={{ paddingLeft: "5px", textAlign: "right" }} name="delegator" value={metadataObj.properties.delegatedTo} />
-                                </li>
-                            </div>
-                            <div className="internal-column">
-                                <li style={{ textAlign: "right", listStyleType: "none" }}>
-                                    <label htmlFor="txt_delegatedToPassport">
-                                        <p> رقم جواز سفر الموكل اليه</p>
-                                    </label>
-                                    <input readOnly type="text" id="txt_delegatedToPassport" style={{ paddingLeft: "5px", textAlign: "right" }} name="delegatedToPassport" value={metadataObj.properties.delegatedToPassport} />
-                                </li>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="internal-column">
-                                <li style={{ textAlign: "right", listStyleType: "none" }}>
                                     <label htmlFor="txt_keySearch">
                                         <p>كلمات بحثية</p>
                                     </label>
