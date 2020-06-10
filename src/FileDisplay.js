@@ -96,24 +96,8 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
 
                                 </li>
                             </div>
-                            <div className="internal-column">
-                                <li style={{ textAlign: "right", listStyleType: "none" }}>
-                                    <label htmlFor="txt_employeeName">
-                                        <p>اسم الموظف</p>
-                                    </label>
-                                    <input readOnly type="text" id="txt_employeeName" style={{ paddingLeft: "5px", textAlign: "right" }} name="employeeName" value={metadataObj.properties.employeeName} />
-                                </li>
-                            </div>
                         </div>
                         <div className="row">
-                            <div className="internal-column">
-                                <li style={{ textAlign: "right", listStyleType: "none" }}>
-                                    <label htmlFor="txt_employeeNumber">
-                                        <p>رقم الموظف</p>
-                                    </label>
-                                    <input readOnly type="text" id="txt_employeeNumber" style={{ paddingLeft: "5px", textAlign: "right" }} name="employeeNumber" value={metadataObj.properties.employeeNumber} />
-                                </li>
-                            </div>
                             <div className="internal-column">
                                 <li style={{ textAlign: "right", listStyleType: "none" }}>
                                     <label htmlFor="delegationType">

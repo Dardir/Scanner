@@ -10,15 +10,13 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
     counsulate: '',
     delegationNumber: '',
     transactionDate: '',
-    employeeName: '',
-    employeeNumber: '',
     delegationType: '',
     delegator: '',
     delegatorPassport: '',
     delegationSubject: '',
     keySearch: ''
   });
-  const mandatoryfields = ['counsulate','delegationNumber','transactionDate','employeeName','delegationType'];
+  const mandatoryfields = ['counsulate','delegationNumber','transactionDate','delegationType'];
   const [isDisabled] = useValidateMandatoryFields(metadataform,mandatoryfields);
 
   const updateField = e => {
@@ -80,18 +78,6 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                     id="date_transactionDate"
                     disabled = {!metadataEnabled}
                   />
-                </li>
-                <li style={{ paddingTop: "10px" }}>
-                  <label htmlFor="txt_employeeName">
-                    <p style={{ color: "red", paddingLeft: "5px" }}>*</p><p>اسم الموظف</p>
-                  </label>
-                  <input type="text" size="20" id="txt_employeeName" name="employeeName" onChange={updateField} disabled = {!metadataEnabled} />
-                </li>
-                <li style={{ paddingTop: "10px" }}>
-                  <label htmlFor="txt_employeeNumber">
-                    <p style={{ color: "red", paddingLeft: "5px" }}>*</p><p>رقم الموظف</p>
-                  </label>
-                  <input type="text" size="20" id="txt_employeeNumber" name="employeeNumber" onChange={updateField} disabled = {!metadataEnabled}/>
                 </li>
               </ul>
             </div>

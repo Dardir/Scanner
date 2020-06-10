@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './FileSearch.css';
 import './DynamsoftSDK.css'
 import { counsulates, delegationTypes, keyMap } from './ReferenceData';
-import { mockingSearchResults } from './ReferenceData';
+//import { mockingSearchResults } from './ReferenceData';
 import DatePicker from "react-datepicker";
 import useValidateAnyValueInFields from './useValidateAnyValueInFields';
 import useFilterSearchResult from './useFilterSearchResult';
@@ -14,8 +14,6 @@ const FileSearch = ({ displayFile, searchResults }) => {
         counsulate: '',
         delegationNumber: '',
         transactionDate: '',
-        employeeName: '',
-        employeeNumber: '',
         delegationType: '',
         delegator: '',
         delegatorPassport: '',
@@ -58,8 +56,8 @@ const FileSearch = ({ displayFile, searchResults }) => {
         const url = process.env.REACT_APP_SEARCH_URL + `/${process.env.REACT_APP_FOLDER_ID}`;
         
         try {
-            //const response = await axios.get(url);
-            const response = mockingSearchResults;
+            const response = await axios.get(url);
+            //const response = mockingSearchResults;
             console.log(response);
             if (response && response.data && response.data.list && response.data.list.entries) {
                 console.log("response.data.list.entries = ");
@@ -209,24 +207,8 @@ const FileSearch = ({ displayFile, searchResults }) => {
 
                                     </li>
                                 </div>
-                                <div className="internal-column">
-                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
-                                        <label htmlFor="txt_employeeName">
-                                            <p>اسم الموظف</p>
-                                        </label>
-                                        <input type="text" size="20" id="txt_employeeName" name="employeeName" value={metadataform.employeeName} onChange={updateField} />
-                                    </li>
-                                </div>
                             </div>
                             <div className="row">
-                                <div className="internal-column">
-                                    <li style={{ textAlign: "right", listStyleType: "none" }}>
-                                        <label htmlFor="txt_employeeNumber">
-                                            <p>رقم الموظف</p>
-                                        </label>
-                                        <input type="text" size="20" id="txt_employeeNumber" name="employeeNumber" value={metadataform.employeeNumber} onChange={updateField} />
-                                    </li>
-                                </div>
                             </div>
                         </div>
                     </div>
