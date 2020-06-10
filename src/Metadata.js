@@ -5,7 +5,7 @@ import './DynamsoftSDK.css';
 import { counsulates, delegationTypes } from './ReferenceData';
 import useValidateMandatoryFields from './useValidateMandatoryFields';
 
-const Metadata = ({saveMetadataObj,metadataEnabled}) => {
+const Metadata = ({saveMetadataObj,metadataEnabled, setFileName}) => {
   const [metadataform, setState] = useState({
     counsulate: '',
     delegationNumber: '',
@@ -25,6 +25,14 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
       ...metadataform,
       [e.target.name]: e.target.value
     });
+  };
+
+  const updateTransactionNumber = e => {
+    setState({
+      ...metadataform,
+      [e.target.name]: e.target.value
+    });
+    setFileName(e.target.value);
   };
 
   const handleTransactionDateChange = date => {
@@ -75,7 +83,7 @@ const Metadata = ({saveMetadataObj,metadataEnabled}) => {
                   <label htmlFor="txt_delegationNumber">
                     <p style={{ color: "red", paddingLeft: "5px" }}>*</p><p>رقم المعاملة</p>
                   </label>
-                  <input type="text" size="20" id="txt_delegationNumber" name="delegationNumber" onChange={updateField} disabled = {!metadataEnabled}/>
+                  <input type="text" size="20" id="txt_delegationNumber" name="delegationNumber" onChange={updateTransactionNumber} disabled = {!metadataEnabled}/>
                 </li>
                 <li style={{ paddingTop: "10px" }}>
                   <label htmlFor="date_transactionDate">

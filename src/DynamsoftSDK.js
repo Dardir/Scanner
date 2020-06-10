@@ -160,7 +160,7 @@ class UI extends React.Component {
                             <li className="toggle"><b>حفظ الوثائق</b></li>
                             <li>
                                 <p>اسم الملف</p>
-                                <input type="text" size="20" id="txt_fileName" />
+                                <input type="text" size="20" id="txt_fileName" value={this.props.fileName} disabled={true}/>
                             </li>
                             <li style={{ paddingRight: "0" }}>
                                 <label htmlFor="imgTypebmp">
@@ -201,6 +201,7 @@ class UI extends React.Component {
                 <Metadata
                     saveMetadataObj={this.props.saveMetadataObj}
                     metadataEnabled={this.props.metadataEnabled}
+                    setFileName={this.props.setFileName}
                 />
                 <div id="DWTcontainerBtm" style={{ textAlign: "left" }} className="clearfix">
                     <div id="DWTemessageContainer"></div>
@@ -216,7 +217,8 @@ export default class DWT extends React.Component {
         super(props);
         this.state = {
             metadataEnabled: false,
-            metadataObj: null
+            metadataObj: null,
+            fileName:new Date().getFullYear() +  "_"
         }
     }
 
@@ -671,6 +673,9 @@ export default class DWT extends React.Component {
         this.appendMessage("<br>تم حفظ البيانات</br>");
         this.setState({ ...this.state, metadataObj: var_metadataObj });
     }
+    setFileName = (fileName) => {
+        this.setState({...this.state,fileName:new Date().getFullYear() +  "_" + fileName})
+    }
 
     render() {
         return (
@@ -703,6 +708,8 @@ export default class DWT extends React.Component {
                 rd_onclick={() => this.rd_onclick()}
                 saveMetadataObj={this.saveMetadataObj}
                 metadataEnabled={this.state.metadataEnabled}
+                setFileName={this.setFileName}
+                fileName={this.state.fileName}
             />
         );
     }
@@ -787,15 +794,6 @@ export default class DWT extends React.Component {
         var varImgTypepng = document.getElementById("imgTypepng");
         if (varImgTypepng)
             varImgTypepng.checked = true;
-
-        var _strDefaultSaveImageName = "WebTWAINImage";
-        var _txtFileNameforSave = document.getElementById("txt_fileNameforSave");
-        if (_txtFileNameforSave)
-            _txtFileNameforSave.value = _strDefaultSaveImageName;
-
-        var _txtFileName = document.getElementById("txt_fileName");
-        if (_txtFileName)
-            _txtFileName.value = _strDefaultSaveImageName;
 
         var _chkMultiPageTIFF_save = document.getElementById("MultiPageTIFF_save");
         if (_chkMultiPageTIFF_save)
