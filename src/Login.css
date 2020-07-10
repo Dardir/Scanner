@@ -60,7 +60,7 @@ form input.pass {
 ::-moz-placeholder { color: #ccc; text-transform: uppercase; }
 :-ms-input-placeholder { color: #ccc; text-transform: uppercase; }
 
-form button[type=submit] {
+form button {
   width: 212px;
   margin-bottom: 0;
   color: #3f898a;

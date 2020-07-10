@@ -2,10 +2,10 @@ import React from 'react';
 import './DynamsoftSDK.css';
 import Dynamsoft from 'dwt';
 import $ from 'jquery';
-import Metadata from './Metadata'
-import uuid from 'react-uuid'
-import axios from 'axios'
+import Metadata from './Metadata';
+import uuid from 'react-uuid';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class UI extends React.Component {
     render() {

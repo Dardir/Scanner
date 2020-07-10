@@ -8,6 +8,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
+    "base-64": "^0.1.0",
     "dwt": "^15.2.0",
     "express": "^4.17.1",
     "formidable": "^1.2.1",
