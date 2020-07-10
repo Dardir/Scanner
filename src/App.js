@@ -4,6 +4,7 @@ import './App.css';
 import DWT from './DynamsoftSDK';
 import FileSearchApp from './FileSearchApp';
 import Home from './Home'
+import Login from './Login'
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path='/' component={Home} />
+            <Route exact path='/login' component={Login} />
             <Route path='/home' component={Home} />
             <Route path='/scan' component={DWT} />
             <Route path='/search' component={FileSearchApp} />
