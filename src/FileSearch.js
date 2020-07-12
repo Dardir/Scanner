@@ -57,6 +57,7 @@ const FileSearch = ({ displayFile, searchResults }) => {
         const url = process.env.REACT_APP_SEARCH_URL + `/${process.env.REACT_APP_FOLDER_ID}`;
 
         try {
+            axios.defaults.headers.common['Authorization'] = localStorage.getItem('token').toString;
             const response = await axios.get(url);
             //const response = mockingSearchResults;
             console.log(response);
