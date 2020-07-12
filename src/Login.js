@@ -3,7 +3,7 @@ import './Login.css';
 import base64 from 'base-64';
 import axios from 'axios';
 
-const Login = () => {
+const Login = (props) => {
     const [errorMessage, setErrorMessage] = useState(null);
     const [loginData, setLoginData] = useState({
         userId: '',
@@ -27,6 +27,12 @@ const Login = () => {
         const url = process.env.REACT_APP_SIGNIN_URL;
         console.log("Calling the following URL to login");
         console.log(url);
+
+        //Mocking data
+        //const token = process.env.REACT_APP_AUTH_KEY;
+        //localStorage.setItem('token', token);
+        // props.history.push('/');
+
         axios.post(url, {
             userId: loginData.userId,
             password: loginData.password
@@ -38,13 +44,14 @@ const Login = () => {
                 const token = data.entry.id;
                 const encodedToken = base64.encode(token);
                 localStorage.setItem('token', encodedToken);
-                //Redirect to Home page
+                props.history.push('/');
                 } else{
                     setErrorMessage("Not Authorized User");
                 }
             }, (error) => {
                 setErrorMessage(error.message);
             })
+
     }
     return (
         <div id="bg">

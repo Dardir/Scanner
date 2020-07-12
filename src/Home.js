@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Background from './eg-flag.jpg';
 import { Link } from 'react-router-dom';
 
 
-const Home = () => {
-    const sectionStyle = {
+const Home = (props) => {
+    useEffect(() => {
+        if(!localStorage.getItem('token')){
+            console.log("No token - Redirect to Login")
+            props.history.push('/login');
+        }
+    },[props.history]);
+   const sectionStyle = {
         width: "100%",
         height: "670px",
         backgroundImage: `url(${Background})`,
