@@ -836,7 +836,7 @@ export default class DWT extends React.Component {
         this.btnSave_onclick(filePath);
 
         //sending saved image to the backend web server which should read the file and send it to Alfresco
-        axios.defaults.headers.common['Authorization'] = localStorage.getItem('token').toString;
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('token').toString();
         axios.post(process.env.REACT_APP_UPLOADER_URL, {
             metadataObj: this.state.metadataObj,
             filePath
