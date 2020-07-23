@@ -57,10 +57,10 @@ const Login = (props) => {
         <div id="bg">
             <form>
                 <label htmlFor=""></label>
-                <input type="text" name="userId" id="userId" placeholder="User Name" className="email" onChange={updateField} />
+                <input type="text" name="userId" id="userId" placeholder="اسم المستخدم" className="email" onChange={updateField} />
                 <label htmlFor=""></label>
-                <input type="password" name="password" id="password" placeholder="password" className="pass" onChange={updateField} />
-                <button onClick={handleClick}>login to your account</button>
+                <input type="password" name="password" id="password" placeholder="كلمة المرور" className="pass" onChange={updateField} />
+                <button onClick={handleClick}>الدخول الي النظام</button>
                 <div>
                 {
                     (errorMessage) ? <div style={{ color: "red" }}>{errorMessage}</div> : <div></div>
