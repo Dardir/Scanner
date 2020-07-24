@@ -162,7 +162,7 @@ export const mockingSearchResults =
                         "properties": {
                             "cm:versionType": "MAJOR",
                             "cm:versionLabel": "1.0",
-                            "dc:POAType": "توكيل بنكي",
+                            "dc:POAType": "تصديق",
                             "cm:description": "12345,2020-04-25,جدة,محمد,110,2020-04-25,خالد,784511,بنك\nالقاهرة\nتوكيل,12345,بنك القاهرة,سامح,7884,توكيل بنكي",
                             "dc:POAFrom": "خالد",
                             "dc:POADate": "2020-04-25T00:00:00.000+0000",
