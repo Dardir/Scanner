@@ -1,4 +1,4 @@
-import { counsulates } from './ReferenceData';
+import { counsulates,delegationTypes } from './ReferenceData';
 const useFilterSearchResult = (searchResultArr,searchFilterObj,keyMap) => {
     const getMappedKey= (oldKey) =>{
         const mapElement = keyMap.find(element => element.key === oldKey);
@@ -27,6 +27,11 @@ const useFilterSearchResult = (searchResultArr,searchFilterObj,keyMap) => {
             if(searchFilterObj[key] && searchFilterObj[key]!==''){
                 if(key === 'counsulate'){
                     const translatedValue = findTranslatedKey(counsulates,searchFilterObj[key]);
+                    if(element.properties[key] === translatedValue) {
+                        matching = true;
+                    }
+                } else if(key === 'delegationType'){
+                    const translatedValue = findTranslatedKey(delegationTypes,searchFilterObj[key]);
                     if(element.properties[key] === translatedValue) {
                         matching = true;
                     }
