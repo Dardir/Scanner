@@ -44,8 +44,9 @@ const FileDisplay = ({ metadataObj, navigateBack }) => {
                 return null;
             }
         }
-        setFileURL(fetchFileURL());
+        //setFileURL(fetchFileURL());
         //setFileURL(mockingFileURL);
+        setFileURL(`http://localhost:8080/share/proxy/alfresco/slingshot/node/content/workspace/SpacesStore/${metadataObj.id}`);
 
     }, [metadataObj.id]);
 
