@@ -43,7 +43,7 @@ const Login = (props) => {
                 setErrorMessage(null);
                 const token = data.entry.id;
                 const encodedToken = base64.encode(token);
-                localStorage.setItem('token', encodedToken);
+                localStorage.setItem('token', `Basic ${encodedToken}`);
                 props.history.push('/');
                 } else{
                     setErrorMessage("Not Authorized User");

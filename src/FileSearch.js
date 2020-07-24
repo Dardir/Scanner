@@ -74,7 +74,7 @@ const FileSearch = ({ displayFile, searchResults }) => {
             console.error(error);
             setErrorMessage('' + error);
         }
-        //setSearchResultArr(mockingSearchResults);
+        //setSearchResultArr(mockingSearchResults.data.list.entries);
     }
     function onClickDisplay(id) {
         displayFile(filteredDisplayedArr[id], filteredDisplayedArr);
