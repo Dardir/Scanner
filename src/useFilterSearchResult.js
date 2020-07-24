@@ -1,3 +1,4 @@
+import { counsulates } from './ReferenceData';
 const useFilterSearchResult = (searchResultArr,searchFilterObj,keyMap) => {
     const getMappedKey= (oldKey) =>{
         const mapElement = keyMap.find(element => element.key === oldKey);
@@ -15,11 +16,22 @@ const useFilterSearchResult = (searchResultArr,searchFilterObj,keyMap) => {
         return {...item.entry, properties: replaceObjKeys(item.entry.properties,keyMap)};
     });
 
+    const findTranslatedKey = (arrayOfReferenceValues,keyToTranslate) =>{
+        const element = arrayOfReferenceValues.find((element) => element.key === keyToTranslate);
+        return element.value;
+    }
+
     const filteredOut = searchResultArrWithNewKeys.filter((element)=>{
         let matching = false;
         Object.keys(searchFilterObj).forEach((key) =>{
             if(searchFilterObj[key] && searchFilterObj[key]!==''){
-                if(element.properties[key] === searchFilterObj[key]){
+                if(key === 'counsulate'){
+                    const translatedValue = findTranslatedKey(counsulates,searchFilterObj[key]);
+                    if(element.properties[key] === translatedValue) {
+                        matching = true;
+                    }
+                }
+                else if(element.properties[key] === searchFilterObj[key]){
                     matching = true;
                 }else{
                     matching = false;
